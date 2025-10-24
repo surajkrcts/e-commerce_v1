@@ -4,6 +4,8 @@ import com.genc.e_commerce.dto.OrderRequest;
 import com.genc.e_commerce.dto.OrderResponse;
 import com.genc.e_commerce.entity.Order;
 import com.genc.e_commerce.service.OrderService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = "*")
 public class OrderController {
+    private static final Logger logger = LogManager.getLogger(OrderController.class);
     @Autowired
     OrderService orderService;
 

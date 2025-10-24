@@ -4,6 +4,8 @@ import com.genc.e_commerce.entity.Product;
 import com.genc.e_commerce.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ import java.util.Map;
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class ProductController {
+    private static final Logger logger = LogManager.getLogger(PaymentController.class);
     @Autowired
     ProductService productService;
 

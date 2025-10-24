@@ -3,6 +3,8 @@ package com.genc.e_commerce.controller;
 import com.genc.e_commerce.entity.Category;
 import com.genc.e_commerce.service.CategoryService;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class CategoryController {
+    private static final Logger logger = LogManager.getLogger(CategoryController.class);
     @Autowired
     CategoryService categoryService;
 

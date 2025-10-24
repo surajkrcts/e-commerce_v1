@@ -6,6 +6,8 @@ import com.genc.e_commerce.entity.Cart;
 import com.genc.e_commerce.exception.ResourceNotFoundException;
 import com.genc.e_commerce.service.CartService;
 import jakarta.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class CartController {
+    private static final Logger logger = LogManager.getLogger(CartController.class);
     @Autowired
     CartService cartService;
 
@@ -28,6 +31,7 @@ public class CartController {
     public ResponseEntity<?> addToCart(@Valid @RequestBody CartRequest cartRequest) {
         Map<String, Object> response = new HashMap<>();
         try {
+
             Cart cart = cartService.addToCart(cartRequest);
             CartResponse cartResponse = new CartResponse(cart);
             response.put("message", "product added in the cart");
