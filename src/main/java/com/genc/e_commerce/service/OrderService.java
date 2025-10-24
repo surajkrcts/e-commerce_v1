@@ -1,8 +1,10 @@
 package com.genc.e_commerce.service;
 
 import com.genc.e_commerce.dto.OrderRequest;
+import com.genc.e_commerce.entity.Cart;
 import com.genc.e_commerce.entity.Order;
 import com.genc.e_commerce.entity.User;
+import com.genc.e_commerce.exception.ResourceNotFoundException;
 import com.genc.e_commerce.repository.CartRepo;
 import com.genc.e_commerce.repository.OrderRepo;
 import com.genc.e_commerce.repository.ProductRepo;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -39,6 +42,11 @@ public class OrderService {
 //            return existingOrder;
 //        }
 
+        List<Cart> cartItems=cartRepo.findByUserUserId(userId);
+        if(cartItems.isEmpty()){
+            throw new ResourceNotFoundException("Cannot create order Your cart is currently empty.");
+        }
+
         Order newOrder = new Order();
         newOrder.setTotalAmount(orderRequest.getTotalAmount());
         newOrder.setOrderDate(new Date());
@@ -46,7 +54,11 @@ public class OrderService {
 
         newOrder.setStatus(Order.Status.PENDING);
 
-        return orderRepo.save(newOrder);
+        Order savedOrder=orderRepo.save(newOrder);
+
+        cartRepo.deleteAll(cartItems);
+
+        return savedOrder;
     }
 
     public Order getOrderDetails(Long orderId) {
