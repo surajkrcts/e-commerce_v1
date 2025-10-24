@@ -14,3 +14,33 @@
 2025-10-24 22:35:05.462 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
 2025-10-24 22:35:05.466 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
 2025-10-24 22:35:19.591 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.289 seconds (process running for 17.977)
+2025-10-24 22:35:24.543 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27976 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:35:24.570 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:35:24.575 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:35:39.689 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 16.097 seconds (process running for 17.985)
+2025-10-24 22:41:15.851 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27976 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:41:15.853 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:41:15.853 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:41:17.677 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 25612 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:41:17.697 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:41:17.700 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:43:30.417 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27976 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:43:30.419 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:43:30.420 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:43:32.683 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27712 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:43:32.709 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:43:32.713 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:49:17.912 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27976 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:49:17.913 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:49:17.914 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:49:20.242 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 4272 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:49:20.282 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:49:20.285 INFO  [restartedMain] ECommerceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-24 22:49:34.929 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.61 seconds (process running for 17.476)
+2025-10-24 22:49:48.805 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27976 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:49:48.808 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:49:48.808 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-24 22:49:51.432 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 29576 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 22:49:51.455 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 22:49:51.458 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-24 22:50:06.030 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.631 seconds (process running for 17.579)
