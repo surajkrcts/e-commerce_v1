@@ -44,3 +44,55 @@
 2025-10-24 22:49:51.455 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
 2025-10-24 22:49:51.458 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
 2025-10-24 22:50:06.030 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.631 seconds (process running for 17.579)
+2025-10-24 23:27:29.195 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 2696 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 23:27:29.226 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 23:27:29.229 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-24 23:27:43.383 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.16 seconds (process running for 17.406)
+2025-10-24 23:28:06.610 INFO  [http-nio-8092-exec-1] UserController - Login attempt for user: ritesh
+2025-10-24 23:28:07.116 WARN  [http-nio-8092-exec-1] UserController - Failed login attempt for user: ritesh. Reason: not found
+2025-10-24 23:28:28.572 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: ritesh1
+2025-10-24 23:28:28.900 INFO  [http-nio-8092-exec-2] UserController - User 'ritesh1' logged in successfully.
+2025-10-24 23:28:30.987 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-24 23:28:31.139 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 0 products
+2025-10-24 23:31:49.264 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 14364 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-24 23:31:49.306 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-24 23:31:49.309 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-24 23:32:04.987 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 16.475 seconds (process running for 18.249)
+2025-10-24 23:32:50.959 INFO  [http-nio-8092-exec-3] CategoryController - Request received to add new category: FASHION
+2025-10-24 23:32:51.667 INFO  [http-nio-8092-exec-3] CategoryController - Successfully added new category with ID: 1
+2025-10-24 23:33:03.688 INFO  [http-nio-8092-exec-4] CategoryController - Request received to add new category: ELECTRONICS
+2025-10-24 23:33:03.744 INFO  [http-nio-8092-exec-4] CategoryController - Successfully added new category with ID: 2
+2025-10-24 23:33:17.628 INFO  [http-nio-8092-exec-6] CategoryController - Request received to add new category: GROCERIES
+2025-10-24 23:33:17.687 INFO  [http-nio-8092-exec-6] CategoryController - Successfully added new category with ID: 3
+2025-10-24 23:33:43.999 INFO  [http-nio-8092-exec-8] CategoryController - Request received to add new category: MENS COLLECTION
+2025-10-24 23:33:44.065 INFO  [http-nio-8092-exec-8] CategoryController - Successfully added new category with ID: 4
+2025-10-24 23:33:54.877 INFO  [http-nio-8092-exec-1] CategoryController - Request received to add new category: WOMENS COLLECTION
+2025-10-24 23:33:54.933 INFO  [http-nio-8092-exec-1] CategoryController - Successfully added new category with ID: 5
+2025-10-24 23:33:59.210 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-24 23:33:59.210 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-24 23:33:59.391 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 0 products
+2025-10-24 23:33:59.433 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 5 categories
+2025-10-24 23:36:09.845 INFO  [http-nio-8092-exec-10] ProductService - Attempting to add new product: Wireless Noise-Cancelling Headphones
+2025-10-24 23:36:09.879 DEBUG [http-nio-8092-exec-10] ProductService - Category 'Category(categoryId=2, categoryName=ELECTRONICS)' found and linked to product.
+2025-10-24 23:36:09.954 DEBUG [http-nio-8092-exec-10] ProductController - data added successfully
+2025-10-24 23:36:09.954 INFO  [http-nio-8092-exec-10] ProductController - Successfully added product with ID: 1
+2025-10-24 23:36:57.231 INFO  [http-nio-8092-exec-7] ProductService - Attempting to add new product: Organic Avocados (Bag of 4)
+2025-10-24 23:36:57.246 DEBUG [http-nio-8092-exec-7] ProductService - Category 'Category(categoryId=3, categoryName=GROCERIES)' found and linked to product.
+2025-10-24 23:36:57.294 DEBUG [http-nio-8092-exec-7] ProductController - data added successfully
+2025-10-24 23:36:57.295 INFO  [http-nio-8092-exec-7] ProductController - Successfully added product with ID: 2
+2025-10-24 23:37:23.770 INFO  [http-nio-8092-exec-9] ProductService - Attempting to add new product: Men's Classic Denim Jacket
+2025-10-24 23:37:23.791 DEBUG [http-nio-8092-exec-9] ProductService - Category 'Category(categoryId=4, categoryName=MENS COLLECTION)' found and linked to product.
+2025-10-24 23:37:23.839 DEBUG [http-nio-8092-exec-9] ProductController - data added successfully
+2025-10-24 23:37:23.840 INFO  [http-nio-8092-exec-9] ProductController - Successfully added product with ID: 3
+2025-10-24 23:37:41.904 INFO  [http-nio-8092-exec-8] ProductService - Attempting to add new product: Women's Floral Print Midi Dress
+2025-10-24 23:37:41.929 DEBUG [http-nio-8092-exec-8] ProductService - Category 'Category(categoryId=5, categoryName=WOMENS COLLECTION)' found and linked to product.
+2025-10-24 23:37:41.977 DEBUG [http-nio-8092-exec-8] ProductController - data added successfully
+2025-10-24 23:37:41.977 INFO  [http-nio-8092-exec-8] ProductController - Successfully added product with ID: 4
+2025-10-24 23:37:53.170 INFO  [http-nio-8092-exec-1] ProductService - Attempting to add new product: Unisex Leather Belt
+2025-10-24 23:37:53.182 DEBUG [http-nio-8092-exec-1] ProductService - Category 'Category(categoryId=1, categoryName=FASHION)' found and linked to product.
+2025-10-24 23:37:53.203 DEBUG [http-nio-8092-exec-1] ProductController - data added successfully
+2025-10-24 23:37:53.204 INFO  [http-nio-8092-exec-1] ProductController - Successfully added product with ID: 5
+2025-10-24 23:38:02.587 INFO  [http-nio-8092-exec-3] CategoryController - Request received to get all categories
+2025-10-24 23:38:02.588 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-24 23:38:02.618 DEBUG [http-nio-8092-exec-3] CategoryController - Fetched 5 categories
+2025-10-24 23:38:02.691 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 5 products

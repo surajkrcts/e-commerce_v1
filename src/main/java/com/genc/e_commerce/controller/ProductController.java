@@ -3,7 +3,7 @@ package com.genc.e_commerce.controller;
 import com.genc.e_commerce.entity.Product;
 import com.genc.e_commerce.service.ProductService;
 import jakarta.validation.Valid;
-// Removed lombok.extern.slf4j.Slf4j to use the explicitly defined logger for consistency.
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,102 +14,111 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException; // Assuming service might throw this
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
 public class ProductController {
     private static final Logger logger = LogManager.getLogger(ProductController.class);
-
     @Autowired
-    private ProductService productService;
+    ProductService productService;
 
-    @PostMapping("/add-product") // Renamed endpoint for clarity
-    public ResponseEntity<Map<String, Object>> addProduct(@Valid @RequestBody Product product) {
-        logger.debug("Request payload: {}", product);
-        Map<String, Object> response = new HashMap<>();
+    @PostMapping("/add-data")
+    public ResponseEntity<?> addProduct(@Valid @RequestBody Product product) {
+//        logger.info("Request received to add product: {}", product.getProductName());
+        Map<String,Object> response=new HashMap<>();
         try {
-            Product newProduct = productService.addProduct(product);
-            response.put("message", "Product added successfully");
-            response.put("data", newProduct);
-            logger.info("Successfully added product with ID: {}", newProduct.getProductId());
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
-        } catch (Exception e) {
-            response.put("error", "Failed to add the product due to a server error.");
-            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
-    @PutMapping("/update-product/{productId}") // Renamed endpoint for clarity
-    public ResponseEntity<Map<String, Object>> updateProduct(@PathVariable Long productId, @RequestBody Product product) {
-        logger.info("Request received to update product with ID: {}", productId);
-        logger.debug("Update payload for product ID {}: {}", productId, product);
-        Map<String, Object> response = new HashMap<>();
-        try {
-            Product updatedProduct = productService.updateProduct(productId, product);
-            response.put("message", "Product updated successfully");
-            response.put("data", updatedProduct);
-            logger.info("Successfully updated product with ID: {}", productId);
+            Product product1=productService.addProduct(product);
+            response.put("message","data added successfully");
+            log.debug("data added successfully"); // This is the original log statement
+            logger.info("Successfully added product with ID: {}", product1.getProductId());
+            response.put("prodcut",product1);
             return ResponseEntity.ok(response);
-        } catch (NoSuchElementException e) { // Example of a more specific exception
-            logger.warn("Attempted to update a non-existent product with ID: {}", productId);
-            response.put("error", "Product with ID " + productId + " not found.");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            logger.error("Error updating product with ID: {}", productId, e);
-            response.put("error", "Failed to update product.");
-            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }catch (Exception e){
+            response.put("error","product not added successfully");
+            log.error("Error tp add the data"); // This is the original log statement
+//            logger.error("Error adding product: {}", product.getProductName(), e);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
         }
     }
 
-    @GetMapping("/product-details/{productId}")
-    public ResponseEntity<?> getProductDetails(@PathVariable Long productId) {
-        logger.info("Request received to fetch details for product ID: {}", productId);
-        Map<String, Object> response = new HashMap<>();
+    @PutMapping("/update-data/{productId}")
+    public ResponseEntity<?> updateProduct(@PathVariable Long productId, @RequestBody Product product) {
+        logger.info("Request received to update product with ID: {}", productId);
+        Map<String,Object> response=new HashMap<>();
         try {
-            Product product = productService.getProductDetails(productId);
-            response.put("message", "Product details fetched successfully");
-            response.put("data", product);
+            Product product1=productService.updateProduct(productId, product);
+            response.put("message","product updated successfully");
+            log.debug("data updated successfully"); // This is the original log statement
+            logger.info("Successfully updated product with ID: {}", productId);
+            response.put("product",product1);
+            return ResponseEntity.ok(response);
+        } catch (Exception e){
+            response.put("error","product not updated");
+            log.error("product not found"); // This is the original log statement
+            logger.warn("Error updating product with ID: {}. It might not exist.", productId, e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+//    Product product1=productService.updateProduct(productId, product);
+//    return product1;
+    }
+    @GetMapping("product-details/{productId}")
+    public ResponseEntity<?> getProductDetails(@PathVariable Long productId){
+        logger.info("Request received to get product details for ID: {}", productId);
+        Map<String, Object> response=new HashMap<>();
+        try {
+            Product product=productService.getProductDetails(productId);
+            response.put("message","product details fetched successfully");
+            response.put("product",product);
             logger.debug("Successfully fetched details for product ID: {}", productId);
             return ResponseEntity.ok(response);
-        } catch (NoSuchElementException e) { // Example of a more specific exception
-            logger.warn("Product with ID: {} not found.", productId);
-            response.put("error", "Product with ID " + productId + " not found.");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        } catch (Exception e){
+            response.put("error","not fetched");
+            log.error("error fetching data"); // This is the original log statement
+            logger.warn("Product details not found for ID: {}", productId, e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
+//@DeleteMapping("/delete-data/{productId}")
+//public ResponseEntity<?> deleteProduct(@PathVariable Long productId){
+//        Map<String,Object> response=new HashMap<>();
+//        try {
+//            Product product=productService.deleteProduct(productId);
+//            response.put("message","deleted successfully");
+//            response.put("product",product);
+//            return ResponseEntity.ok(response);
+//        } catch (Exception e){
+//            response.put("error","product not found");
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+//        }
+    ////       return productService.deleteProduct(productId);
+//}
 
-    @DeleteMapping("/delete-product/{productId}") // Renamed endpoint for clarity
-    public ResponseEntity<Map<String, Object>> deleteProduct(@PathVariable Long productId) {
+    @DeleteMapping("/delete-data/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long productId){
         logger.info("Request received to delete product with ID: {}", productId);
-        Map<String, Object> response = new HashMap<>();
-        try {
-            productService.deleteProduct(productId);
-            response.put("message", "Product with ID " + productId + " deleted successfully.");
-            logger.info("Successfully deleted product with ID: {}", productId);
-            return ResponseEntity.ok(response);
-        } catch (NoSuchElementException e) { // Example of a more specific exception
-            logger.warn("Attempted to delete a non-existent product with ID: {}", productId);
-            response.put("error", "Product with ID " + productId + " not found.");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
+        String product=productService.deleteProduct(productId);
+        logger.info("Successfully deleted product with ID: {}", productId);
+        return ResponseEntity.ok(product);
     }
 
-    @GetMapping("/get-all-products") // Renamed endpoint for clarity
-    public ResponseEntity<Map<String, Object>> getAllProducts() {
-        logger.info("Request received to fetch all products.");
-        Map<String, Object> response = new HashMap<>();
+    @GetMapping("/getall")
+    public ResponseEntity<?> getAllProducts(){
+        logger.info("Request received to get all products");
+        Map<String,Object> response=new HashMap<>();
         try {
-            List<Product> products = productService.getAllProducts();
-            response.put("message", "All products fetched successfully");
-            response.put("data", products);
-            logger.debug("Fetched {} products.", products.size());
+            List<Product> product= productService.getAllProducts();
+            response.put("message","all products fetched successfully");
+            response.put("product",product);
+            logger.debug("Fetched {} products", product.size());
             return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            logger.error("An error occurred while fetching all products.", e);
-            response.put("error", "Could not fetch products due to a server error.");
-            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e){
+            response.put("error","product not found");
+            logger.error("Error fetching all products", e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
+
     }
 }
