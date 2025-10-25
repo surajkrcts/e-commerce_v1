@@ -96,3 +96,49 @@
 2025-10-24 23:38:02.588 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
 2025-10-24 23:38:02.618 DEBUG [http-nio-8092-exec-3] CategoryController - Fetched 5 categories
 2025-10-24 23:38:02.691 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 5 products
+2025-10-25 09:02:48.319 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 15112 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-25 09:02:48.328 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-25 09:02:48.329 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-25 09:03:06.868 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 19.217 seconds (process running for 20.892)
+2025-10-25 09:03:28.916 INFO  [http-nio-8092-exec-1] ProductController - Request received to get all products
+2025-10-25 09:03:28.916 INFO  [http-nio-8092-exec-3] CategoryController - Request received to get all categories
+2025-10-25 09:03:29.501 DEBUG [http-nio-8092-exec-3] CategoryController - Fetched 5 categories
+2025-10-25 09:03:29.536 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 5 products
+2025-10-25 09:03:37.832 INFO  [http-nio-8092-exec-4] UserController - Login attempt for user: ritesh1
+2025-10-25 09:03:38.132 INFO  [http-nio-8092-exec-4] UserController - User 'ritesh1' logged in successfully.
+2025-10-25 09:03:39.993 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-25 09:03:39.993 INFO  [http-nio-8092-exec-10] ProductController - Request received to get all products
+2025-10-25 09:03:40.004 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 5 categories
+2025-10-25 09:03:40.031 DEBUG [http-nio-8092-exec-10] ProductController - Fetched 5 products
+2025-10-25 09:03:46.633 DEBUG [http-nio-8092-exec-6] CartController - Request received to add product to cart: CartRequest(userId=1, productId=2, quantity=1)
+2025-10-25 09:03:46.644 INFO  [http-nio-8092-exec-6] CartService - Attempting to add product to cart for user ID:1 and product ID:2
+2025-10-25 09:03:46.665 DEBUG [http-nio-8092-exec-6] CartService - User found: ritesh1
+2025-10-25 09:03:46.677 DEBUG [http-nio-8092-exec-6] CartService - Product found: Organic Avocados (Bag of 4)
+2025-10-25 09:03:46.793 INFO  [http-nio-8092-exec-6] CartService - New cart item created with Quantity: 1
+2025-10-25 09:03:47.014 INFO  [http-nio-8092-exec-6] CartController - Product 2 added to cart for user 1.
+2025-10-25 09:03:50.754 DEBUG [http-nio-8092-exec-7] CartController - Request received to add product to cart: CartRequest(userId=1, productId=3, quantity=1)
+2025-10-25 09:03:50.758 INFO  [http-nio-8092-exec-7] CartService - Attempting to add product to cart for user ID:1 and product ID:3
+2025-10-25 09:03:50.767 DEBUG [http-nio-8092-exec-7] CartService - User found: ritesh1
+2025-10-25 09:03:50.772 DEBUG [http-nio-8092-exec-7] CartService - Product found: Men's Classic Denim Jacket
+2025-10-25 09:03:50.779 INFO  [http-nio-8092-exec-7] CartService - New cart item created with Quantity: 1
+2025-10-25 09:03:50.790 INFO  [http-nio-8092-exec-7] CartController - Product 3 added to cart for user 1.
+2025-10-25 09:03:58.772 INFO  [http-nio-8092-exec-3] CartController - Fetching cart details for user ID: 1
+2025-10-25 09:03:58.811 DEBUG [http-nio-8092-exec-3] CartController - Found 2 cart items for user ID: 1
+2025-10-25 09:04:02.751 INFO  [http-nio-8092-exec-9] CartController - Request received to update quantity for cart ID: 1 with data: {quantity=2}
+2025-10-25 09:04:02.767 INFO  [http-nio-8092-exec-9] CartService - Cart item ID 1 quantity updated to 2. New Total: $11.98
+2025-10-25 09:04:02.806 INFO  [http-nio-8092-exec-9] CartController - Successfully updated quantity for cart ID 1 to 2.
+2025-10-25 09:04:02.815 INFO  [http-nio-8092-exec-4] CartController - Fetching cart details for user ID: 1
+2025-10-25 09:04:02.835 DEBUG [http-nio-8092-exec-4] CartController - Found 2 cart items for user ID: 1
+2025-10-25 09:04:06.959 INFO  [http-nio-8092-exec-10] OrderController - Request received to create order for user ID: 1
+2025-10-25 09:04:06.960 DEBUG [http-nio-8092-exec-10] OrderController - Order creation payload: OrderRequest(userId=1, totalAmount=101.93, orderDate=null, status=null)
+2025-10-25 09:04:07.026 INFO  [http-nio-8092-exec-10] OrderController - Successfully created order with ID: 1 for user ID: 1
+2025-10-25 09:04:10.248 INFO  [http-nio-8092-exec-6] ProductController - Request received to get all products
+2025-10-25 09:04:10.248 INFO  [http-nio-8092-exec-5] CategoryController - Request received to get all categories
+2025-10-25 09:04:10.263 DEBUG [http-nio-8092-exec-5] CategoryController - Fetched 5 categories
+2025-10-25 09:04:10.281 DEBUG [http-nio-8092-exec-6] ProductController - Fetched 5 products
+2025-10-25 09:04:11.965 INFO  [http-nio-8092-exec-7] CartController - Fetching cart details for user ID: 1
+2025-10-25 09:04:11.979 DEBUG [http-nio-8092-exec-7] CartController - Found 0 cart items for user ID: 1
+2025-10-25 09:11:08.843 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 25408 (C:\CognizantTraining\Stage2\Spring\e-commerce_v1\target\classes started by 2442569 in C:\CognizantTraining\Stage2\Spring\e-commerce_v1)
+2025-10-25 09:11:08.867 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-25 09:11:08.870 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-25 09:11:22.348 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 14.749 seconds (process running for 17.392)
