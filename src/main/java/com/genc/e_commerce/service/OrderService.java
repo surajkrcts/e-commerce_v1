@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -36,15 +37,15 @@ public class OrderService {
         Long userId = orderRequest.getUserId();
         User user = userRepository.findById(userId).orElseThrow(() ->
                 new RuntimeException("Cannot create order: User not found with ID " + userId));
-//        Optional<Order> existingOrderDetails=orderRepo.findByUserUserIdAndStatus(userId,Order.Status.PENDING);
-//        if(existingOrderDetails.isPresent()){
-//            Order existingOrder=existingOrderDetails.get();
-//            return existingOrder;
-//        }
+
+        Optional<Order> existingPendingOrder=orderRepo.findByUserUserIdAndStatus(userId,Order.Status.PENDING);
+        if(existingPendingOrder.isPresent()){
+            return existingPendingOrder.get();
+        }
 
         List<Cart> cartItems=cartRepo.findByUserUserId(userId);
         if(cartItems.isEmpty()){
-            throw new ResourceNotFoundException("Cannot create order Your cart is currently empty.");
+            throw new ResourceNotFoundException("Cannot create order: Your cart is currently empty.");
         }
 
         Order newOrder = new Order();
@@ -56,7 +57,7 @@ public class OrderService {
 
         Order savedOrder=orderRepo.save(newOrder);
 
-        cartRepo.deleteAll(cartItems);
+
 
         return savedOrder;
     }
@@ -67,13 +68,19 @@ public class OrderService {
     }
 
 
-
-//    public Order updateOrderStatus(Long orderId, Order.Status newStatus) {
+//
+//    public Order updateOrderStatus(Long orderId, Long userId) {
 //        Order existingOrder = orderRepo.findById(orderId)
-//                .orElseThrow(() -> new RuntimeException("Order not found with ID: " + orderId));
+//                .orElseThrow(() -> new ResourceNotFoundException("Order not found with ID: " + orderId));
 //
-//           existingOrder.setStatus(newStatus);
+//           existingOrder.setStatus(Order.Status.SHIPPED);
+//           Order finalOrder=orderRepo.save(existingOrder);
 //
-//        return orderRepo.save(existingOrder);
+//        List<Cart> cartItems=cartRepo.findByUserUserId(userId);
+//        cartRepo.deleteAll(cartItems);
+//
+//        return finalOrder;
 //    }
 }
+
+

@@ -1,7 +1,10 @@
 package com.genc.e_commerce.service;
 
+import com.genc.e_commerce.entity.Cart;
 import com.genc.e_commerce.entity.Order;
 import com.genc.e_commerce.entity.Payment;
+import com.genc.e_commerce.exception.ResourceNotFoundException;
+import com.genc.e_commerce.repository.CartRepo;
 import com.genc.e_commerce.repository.OrderRepo;
 import com.genc.e_commerce.repository.PaymentRepo;
 import jakarta.transaction.Transactional;
@@ -11,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
+
 @Service
 public class PaymentService {
 
@@ -18,14 +23,14 @@ public class PaymentService {
 
     private final PaymentRepo paymentRepo;
     private final OrderRepo orderRepo;
-
-
+    private final CartRepo cartRepo;
 
 
     @Autowired
-    public PaymentService(PaymentRepo paymentRepo, OrderRepo orderRepo) {
+    public PaymentService(PaymentRepo paymentRepo, OrderRepo orderRepo, CartRepo cartRepo) {
         this.paymentRepo = paymentRepo;
         this.orderRepo = orderRepo;
+        this.cartRepo = cartRepo;
     }
 
     @Transactional
@@ -36,6 +41,8 @@ public class PaymentService {
         try {
             Order order = orderRepo.findById(orderId)
                     .orElseThrow(() -> new RuntimeException("Order not found with id: " + orderId));
+
+            Long userId = order.getUser().getUserId();
 
             Payment payment = new Payment();
             payment.setAmount(order.getTotalAmount());
@@ -48,6 +55,7 @@ public class PaymentService {
                 payment.setPaymentStatus(Payment.PaymentStatus.COMPLETED);
                 order.setStatus(Order.Status.SHIPPED);
                 logger.info("Payment successful for orderId: {}. Order status set to PENDING.", orderId);
+                deleteCartAfterPayment(userId);
             } else {
                 payment.setPaymentStatus(Payment.PaymentStatus.FAILED);
                 order.setStatus(Order.Status.CANCELLED);
@@ -78,5 +86,14 @@ public class PaymentService {
 
         logger.debug("Status for paymentId {}: {}", paymentId, payment.getPaymentStatus());
         return payment.getPaymentStatus();
+    }
+
+    public String deleteCartAfterPayment(Long userId) {
+        List<Cart> cartList = cartRepo.findByUserUserId(userId);
+        if (cartList.isEmpty()) {
+            throw new ResourceNotFoundException("no cart item found");
+        }
+        cartRepo.deleteAll(cartList);
+        return "existing user id cart deleted successfully";
     }
 }

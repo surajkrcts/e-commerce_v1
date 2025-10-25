@@ -30,18 +30,25 @@ public class CartService {
     private ProductRepo productRepo;
 
 
+    //user will do add to cart product in the cart
     @Transactional
     public Cart addToCart(CartRequest cartRequest) {
         log.info("Attempting to add product to cart for user ID:{} and product ID:{}",
                 cartRequest.getUserId(), cartRequest.getProductId());
 
+        // getting the user id to add product in the existing user.
         User user = userRepository.findById(cartRequest.getUserId()).
                 orElseThrow(() -> new ResourceNotFoundException("User not found"));
         log.debug("User found: {}", user.getUsername());
 
+        // now getting the product id to check it is present or not then will add product to existing user cart
         Product product = productRepo.findById(cartRequest.getProductId()).
                 orElseThrow(() -> new ResourceNotFoundException("Prodcut not found"));
         log.debug("Product found: {}", product.getName());
+
+         /*if existing cart is there of particular user then it will add product in the existing cart and also increses
+        the quantity and price .. one more things it will work for when i add product from \
+        the list of product or product feature section*/
 
         Optional<Cart> existingCartItem = cartRepo.findByUserAndProduct(user, product);
         double unitprice=product.getPrice();
@@ -52,7 +59,11 @@ public class CartService {
             cart.setItemPriceTotal(unitprice*updateQuantity);
             log.info("Existing cart item updated. New Quantity: {}", updateQuantity);
             return cartRepo.save(cart);
-        } else {
+        }
+/*
+        if not existing cart is there for user it will create new cart for user
+*/
+        else {
             Cart cart = new Cart();
             cart.setUser(user);
             cart.setProduct(product);
@@ -64,15 +75,24 @@ public class CartService {
     }
 
 
+/*
+    remove product from the cart
+*/
     @Transactional
     public Optional<Cart> removeFromCart(Long cartId) {
         log.info("Attempting to find and remove cart item using cart ID:{}", cartId);
+/*
+        check is there product exist in the cart for particular user cart id and then delete the cart
+*/
         Optional<Cart> existingCart = cartRepo.findById(cartId);
         if (existingCart.isPresent()) {
             cartRepo.deleteById(cartId);
             log.info("Cart item successfully deleted: {}", cartId);
             return existingCart;
         }
+/*
+        otherwise it will show cart empty
+*/
         log.warn("Cart item not found for removal: {}", cartId);
         return Optional.empty();
     }
@@ -88,6 +108,9 @@ public class CartService {
                 .collect(Collectors.toList());
     }
 
+/*
+    this will update inside cart data when we are increasing the quantity then the price will also effect inside the cart data
+*/
     @Transactional
     public Cart updateQuantity(Long cartId, int newQuantity){
 
