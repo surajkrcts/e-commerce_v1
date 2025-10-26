@@ -1590,3 +1590,31 @@
 2025-10-26 19:47:07.979 INFO  [http-nio-8092-exec-7] CategoryController - Request received to get all categories
 2025-10-26 19:47:07.985 DEBUG [http-nio-8092-exec-7] CategoryController - Fetched 5 categories
 2025-10-26 19:47:07.993 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 6 products
+2025-10-26 21:35:57.246 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 26064 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 21:35:57.260 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 21:35:57.262 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 21:36:06.609 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 9.921 seconds (process running for 11.69)
+2025-10-26 21:36:58.406 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27232 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 21:36:58.416 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 21:36:58.418 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 21:37:12.709 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 14.83 seconds (process running for 16.18)
+2025-10-26 21:38:18.308 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27472 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 21:38:18.322 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 21:38:18.324 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 21:38:32.200 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 14.575 seconds (process running for 15.912)
+2025-10-26 21:40:22.929 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27196 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 21:40:22.940 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 21:40:22.940 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 21:40:37.713 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 15.334 seconds (process running for 16.544)
+2025-10-26 22:41:41.013 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 14196 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 22:41:41.025 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 22:41:41.026 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 22:41:47.610 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.015 seconds (process running for 7.856)
+2025-10-26 22:42:54.266 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 15732 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 22:42:54.277 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 22:42:54.278 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 22:43:00.247 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 6.478 seconds (process running for 7.49)
+2025-10-26 22:45:33.680 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 5564 (C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1\target\classes started by 2442569 in C:\Users\2442569\Downloads\e-commerce_v1\e-commerce_v1)
+2025-10-26 22:45:33.698 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 22:45:33.701 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 22:45:44.041 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 11.119 seconds (process running for 12.434)
