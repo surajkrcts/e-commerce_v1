@@ -1263,3 +1263,17 @@
 2025-10-26 18:30:05.474 INFO  [http-nio-8092-exec-5] PaymentController - Successfully processed payment for orderId: 6
 2025-10-26 18:30:07.243 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 6
 2025-10-26 18:30:07.267 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 6
+2025-10-26 18:55:59.646 INFO  [main] CartService - Attempting to add product to cart for user ID:1 and product ID:10
+2025-10-26 18:55:59.655 DEBUG [main] CartService - User found: null
+2025-10-26 18:55:59.655 DEBUG [main] CartService - Product found: null
+2025-10-26 18:55:59.657 INFO  [main] CartService - New cart item created with Quantity: 2
+2025-10-26 18:55:59.692 INFO  [main] CartService - Attempting to find and remove cart item using cart ID:99
+2025-10-26 18:55:59.692 WARN  [main] CartService - Cart item not found for removal: 99
+2025-10-26 18:55:59.708 INFO  [main] CartService - Attempting to add product to cart for user ID:1 and product ID:10
+2025-10-26 18:55:59.708 DEBUG [main] CartService - User found: null
+2025-10-26 18:55:59.708 DEBUG [main] CartService - Product found: null
+2025-10-26 18:55:59.710 INFO  [main] CartService - Existing cart item updated. New Quantity: 5
+2025-10-26 18:55:59.716 INFO  [main] CartService - Cart item ID 1 quantity updated to 5. New Total: $500.0
+2025-10-26 18:55:59.745 INFO  [main] CartService - Attempting to add product to cart for user ID:1 and product ID:10
+2025-10-26 18:55:59.752 INFO  [main] CartService - Attempting to find and remove cart item using cart ID:50
+2025-10-26 18:55:59.753 INFO  [main] CartService - Cart item successfully deleted: 50
