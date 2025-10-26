@@ -4,7 +4,6 @@ import com.genc.e_commerce.entity.Category;
 import com.genc.e_commerce.entity.Product;
 import com.genc.e_commerce.repository.CategoryRepo;
 import com.genc.e_commerce.repository.ProductRepo;
-import com.genc.e_commerce.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,6 @@ public class ProductService {
 
     @Autowired
     private CategoryRepo categoryRepo;
-
-    @Autowired
-    private UserRepository userRepository;
-
 
 
     public Product addProduct(Product product) {

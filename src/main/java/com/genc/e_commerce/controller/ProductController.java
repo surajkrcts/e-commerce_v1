@@ -3,7 +3,6 @@ package com.genc.e_commerce.controller;
 import com.genc.e_commerce.entity.Product;
 import com.genc.e_commerce.service.ProductService;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Slf4j
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -26,20 +25,16 @@ public class ProductController {
 
     @PostMapping("/add-data")
     public ResponseEntity<?> addProduct(@Valid @RequestBody Product product) {
-//        logger.info("Request received to add product: {}", product.getProductName());
         Map<String,Object> response=new HashMap<>();
         try {
 
             Product product1=productService.addProduct(product);
             response.put("message","data added successfully");
-            log.debug("data added successfully"); // This is the original log statement
             logger.info("Successfully added product with ID: {}", product1.getProductId());
             response.put("prodcut",product1);
             return ResponseEntity.ok(response);
         }catch (Exception e){
             response.put("error","product not added successfully");
-            log.error("Error tp add the data"); // This is the original log statement
-//            logger.error("Error adding product: {}", product.getProductName(), e);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
         }
     }
@@ -51,18 +46,17 @@ public class ProductController {
         try {
             Product product1=productService.updateProduct(productId, product);
             response.put("message","product updated successfully");
-            log.debug("data updated successfully"); // This is the original log statement
+
             logger.info("Successfully updated product with ID: {}", productId);
             response.put("product",product1);
             return ResponseEntity.ok(response);
         } catch (Exception e){
             response.put("error","product not updated");
-            log.error("product not found"); // This is the original log statement
+
             logger.warn("Error updating product with ID: {}. It might not exist.", productId, e);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-//    Product product1=productService.updateProduct(productId, product);
-//    return product1;
+
     }
     @GetMapping("product-details/{productId}")
     public ResponseEntity<?> getProductDetails(@PathVariable Long productId){
@@ -76,7 +70,7 @@ public class ProductController {
             return ResponseEntity.ok(response);
         } catch (Exception e){
             response.put("error","not fetched");
-            log.error("error fetching data"); // This is the original log statement
+
             logger.warn("Product details not found for ID: {}", productId, e);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
@@ -122,3 +116,4 @@ public class ProductController {
 
     }
 }
+
