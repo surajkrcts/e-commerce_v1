@@ -2010,3 +2010,94 @@
 2025-10-27 10:57:22.967 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
 2025-10-27 10:57:22.969 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
 2025-10-27 10:57:28.530 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 5.953 seconds (process running for 6.977)
+2025-10-27 11:39:32.622 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 14572 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 11:39:32.628 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 11:39:32.629 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 11:39:39.902 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.797 seconds (process running for 9.1)
+2025-10-27 11:40:04.443 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-27 11:40:04.443 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-27 11:40:04.564 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 0 categories
+2025-10-27 11:40:04.564 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 0 products
+2025-10-27 11:40:13.778 INFO  [http-nio-8092-exec-4] UserController - Login attempt for user: testuser2
+2025-10-27 11:40:13.778 INFO  [http-nio-8092-exec-4] UserService - Attempting login for user: testuser2
+2025-10-27 11:40:13.952 INFO  [http-nio-8092-exec-4] UserService - Successful login for user ID: 3
+2025-10-27 11:40:13.960 INFO  [http-nio-8092-exec-4] UserController - User 'testuser2' logged in successfully.
+2025-10-27 11:40:15.615 INFO  [http-nio-8092-exec-5] CategoryController - Request received to get all categories
+2025-10-27 11:40:15.620 INFO  [http-nio-8092-exec-6] ProductController - Request received to get all products
+2025-10-27 11:40:15.628 DEBUG [http-nio-8092-exec-5] CategoryController - Fetched 0 categories
+2025-10-27 11:40:15.633 DEBUG [http-nio-8092-exec-6] ProductController - Fetched 0 products
+2025-10-27 11:42:43.742 INFO  [http-nio-8092-exec-1] CategoryController - Request received to add new category: Electronics
+2025-10-27 11:42:43.892 INFO  [http-nio-8092-exec-1] CategoryController - Successfully added new category with ID: 1
+2025-10-27 11:43:46.489 INFO  [http-nio-8092-exec-6] ProductService - Attempting to add new product: Earphones
+2025-10-27 11:43:46.508 DEBUG [http-nio-8092-exec-6] ProductService - Category 'Category(categoryId=1, categoryName=Electronics)' found and linked to product.
+2025-10-27 11:43:46.541 INFO  [http-nio-8092-exec-6] ProductController - Successfully added product with ID: 1
+2025-10-27 11:43:56.288 INFO  [http-nio-8092-exec-7] CategoryController - Request received to get all categories
+2025-10-27 11:43:56.288 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-27 11:43:56.296 DEBUG [http-nio-8092-exec-7] CategoryController - Fetched 1 categories
+2025-10-27 11:43:56.316 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 1 products
+2025-10-27 11:44:21.533 INFO  [http-nio-8092-exec-9] ProductService - Attempting to add new product: TWS Earphones
+2025-10-27 11:44:21.533 DEBUG [http-nio-8092-exec-9] ProductService - Category 'Category(categoryId=1, categoryName=Electronics)' found and linked to product.
+2025-10-27 11:44:21.542 INFO  [http-nio-8092-exec-9] ProductController - Successfully added product with ID: 2
+2025-10-27 11:44:25.008 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-27 11:44:25.008 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-27 11:44:25.015 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 1 categories
+2025-10-27 11:44:25.015 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 2 products
+2025-10-27 11:44:36.745 DEBUG [http-nio-8092-exec-4] CartController - Request received to add product to cart: CartRequest(userId=3, productId=1, quantity=1)
+2025-10-27 11:44:36.759 INFO  [http-nio-8092-exec-4] CartService - Attempting to add product to cart for user ID:3 and product ID:1
+2025-10-27 11:44:36.759 DEBUG [http-nio-8092-exec-4] CartService - User found: testuser2
+2025-10-27 11:44:36.773 DEBUG [http-nio-8092-exec-4] CartService - Product found: Earphones
+2025-10-27 11:44:36.794 INFO  [http-nio-8092-exec-4] CartService - New cart item created with Quantity: 1
+2025-10-27 11:44:36.808 INFO  [http-nio-8092-exec-4] CartController - Product 1 added to cart for user 3.
+2025-10-27 11:44:43.595 INFO  [http-nio-8092-exec-5] CartController - Fetching cart details for user ID: 3
+2025-10-27 11:44:43.622 DEBUG [http-nio-8092-exec-5] CartController - Found 1 cart items for user ID: 3
+2025-10-27 11:44:48.532 INFO  [http-nio-8092-exec-7] OrderController - Request received to create an order for user ID: 3
+2025-10-27 11:44:48.532 DEBUG [http-nio-8092-exec-7] OrderController - Order creation request payload: OrderRequest(userId=3, totalAmount=999.0, orderDate=null, status=null)
+2025-10-27 11:44:48.580 INFO  [http-nio-8092-exec-7] OrderController - Successfully created order with ID: 1 for user ID: 3
+2025-10-27 11:44:53.335 INFO  [http-nio-8092-exec-9] OrderController - Request received to fetch details for order ID: 1
+2025-10-27 11:44:53.346 INFO  [http-nio-8092-exec-9] OrderController - Successfully fetched details for order ID: 1
+2025-10-27 11:45:02.863 INFO  [http-nio-8092-exec-3] PaymentController - Received payment processing request for orderId: 1
+2025-10-27 11:45:02.863 DEBUG [http-nio-8092-exec-3] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=UPI
+2025-10-27 11:45:02.868 INFO  [http-nio-8092-exec-3] PaymentService - Attempting to process payment for orderId: 1
+2025-10-27 11:45:02.874 DEBUG [http-nio-8092-exec-3] PaymentService - Payment method for orderId 1: UPI
+2025-10-27 11:45:02.874 INFO  [http-nio-8092-exec-3] PaymentService - Payment successful for orderId: 1. Order status set to PENDING.
+2025-10-27 11:45:02.908 INFO  [http-nio-8092-exec-3] PaymentService - Payment processed and saved successfully for orderId: 1
+2025-10-27 11:45:02.944 INFO  [http-nio-8092-exec-3] PaymentController - Successfully processed payment for orderId: 1
+2025-10-27 11:45:04.881 INFO  [http-nio-8092-exec-10] OrderController - Request received to fetch details for order ID: 1
+2025-10-27 11:45:04.898 INFO  [http-nio-8092-exec-10] OrderController - Successfully fetched details for order ID: 1
+2025-10-27 11:45:09.807 INFO  [http-nio-8092-exec-1] ProductController - Request received to get all products
+2025-10-27 11:45:09.807 INFO  [http-nio-8092-exec-4] CategoryController - Request received to get all categories
+2025-10-27 11:45:09.818 DEBUG [http-nio-8092-exec-4] CategoryController - Fetched 1 categories
+2025-10-27 11:45:09.819 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 2 products
+2025-10-27 11:45:22.809 INFO  [http-nio-8092-exec-6] CartController - Fetching cart details for user ID: 3
+2025-10-27 11:45:22.836 DEBUG [http-nio-8092-exec-6] CartController - Found 0 cart items for user ID: 3
+2025-10-27 11:45:24.808 INFO  [http-nio-8092-exec-7] CategoryController - Request received to get all categories
+2025-10-27 11:45:24.809 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-27 11:45:24.817 DEBUG [http-nio-8092-exec-7] CategoryController - Fetched 1 categories
+2025-10-27 11:45:24.823 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 2 products
+2025-10-27 11:45:49.871 INFO  [http-nio-8092-exec-9] ProductController - Request received to get product details for ID: 1
+2025-10-27 11:45:49.876 DEBUG [http-nio-8092-exec-9] ProductController - Successfully fetched details for product ID: 1
+2025-10-27 11:47:43.869 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:47:43.971 INFO  [main] UserService - Attempting login for user: testuser
+2025-10-27 11:47:43.990 INFO  [main] UserService - Attempting login for user: wronguser
+2025-10-27 11:47:43.990 WARN  [main] UserService - Login failed for user: wronguser (not found)
+2025-10-27 11:47:43.995 WARN  [main] UserService - Update failed: User with ID 999 not found.
+2025-10-27 11:47:44.004 DEBUG [main] UserService - Fetching profile for user ID: 1
+2025-10-27 11:47:44.008 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:50:19.333 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:50:19.419 INFO  [main] UserService - Attempting login for user: testuser
+2025-10-27 11:50:19.436 INFO  [main] UserService - Attempting login for user: wronguser
+2025-10-27 11:50:19.437 WARN  [main] UserService - Login failed for user: wronguser (not found)
+2025-10-27 11:50:19.441 WARN  [main] UserService - Update failed: User with ID 999 not found.
+2025-10-27 11:50:19.453 DEBUG [main] UserService - Fetching profile for user ID: 1
+2025-10-27 11:50:19.458 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:52:51.487 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:52:51.569 INFO  [main] UserService - Successfully added user with ID: 1
+2025-10-27 11:52:51.666 INFO  [main] UserService - Attempting login for user: testuser
+2025-10-27 11:52:51.719 INFO  [main] UserService - Successful login for user ID: 1
+2025-10-27 11:52:51.777 INFO  [main] UserService - Password successfully reset for user ID: 1
+2025-10-27 11:52:51.782 INFO  [main] UserService - Attempting login for user: wronguser
+2025-10-27 11:52:51.783 WARN  [main] UserService - Login failed for user: wronguser (not found)
+2025-10-27 11:52:51.788 WARN  [main] UserService - Update failed: User with ID 999 not found.
+2025-10-27 11:52:51.791 DEBUG [main] UserService - Fetching profile for user ID: 1
+2025-10-27 11:52:51.796 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 11:52:51.847 WARN  [main] UserService - Registration failed: User with username 'testuser' already exists.

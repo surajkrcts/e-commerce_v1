@@ -12,15 +12,21 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
- class UserServiceTest {
+
+class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private UserService userService;
@@ -28,18 +34,23 @@ import static org.mockito.Mockito.*;
     private User mockUser;
 
     @BeforeEach
-     void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
         mockUser = new User();
         mockUser.setUserId(1L);
         mockUser.setUsername("testuser");
         mockUser.setPassword("password");
         mockUser.setEmail("test@example.com");
+
+        BCryptPasswordEncoder delegate = new BCryptPasswordEncoder();
+        when(passwordEncoder.encode(any(CharSequence.class)))
+                .thenAnswer(inv -> delegate.encode((CharSequence) inv.getArgument(0)));
+        when(passwordEncoder.matches(any(CharSequence.class), anyString()))
+                .thenAnswer(inv -> delegate.matches((CharSequence) inv.getArgument(0), (String) inv.getArgument(1)));
     }
 
-    // Test adding a new user when the username does not already exist.
     @Test
-     void testAddUser_Success() {
+    void testAddUser_Success() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.empty());
         when(userRepository.save(any(User.class))).thenReturn(mockUser);
 
@@ -50,28 +61,25 @@ import static org.mockito.Mockito.*;
         verify(userRepository).save(any(User.class));
     }
 
-    // Test adding a new user when the username already exists.
-
-     @Test
-     void testAddUser_UserAlreadyExists() {
-         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
-
-         DuplicateResourceException exception =
-                 assertThrows(DuplicateResourceException.class, () -> {
-                     userService.addUser(mockUser);
-                 });
-
-         assertEquals("User with username 'testuser' already exists.", exception.getMessage());
-     }
-
-    // Test successful login with correct username and password.
     @Test
-     void testLoginUser_Success() {
+    void testAddUser_UserAlreadyExists() {
+        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
+
+        DuplicateResourceException exception =
+                assertThrows(DuplicateResourceException.class, () -> {
+                    userService.addUser(mockUser);
+                });
+
+        assertEquals("User with username 'testuser' already exists.", exception.getMessage());
+    }
+
+    @Test
+    void testLoginUser_Success() {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("testuser");
         loginRequest.setPassword("password");
 
-        // Encode password to match
+        // Encode password to match the delegate behavior
         String encodedPassword = new BCryptPasswordEncoder().encode("password");
         mockUser.setPassword(encodedPassword);
 
@@ -83,9 +91,8 @@ import static org.mockito.Mockito.*;
         assertEquals("testuser", loggedInUser.getUsername());
     }
 
-    // Test failed login with incorrect username or password.
     @Test
-     void testLoginUser_Failure() {
+    void testLoginUser_Failure() {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("wronguser");
         loginRequest.setPassword("wrongpass");
@@ -97,9 +104,8 @@ import static org.mockito.Mockito.*;
         });
     }
 
-    // Test fetching user profile by user ID.
     @Test
-     void testGetUserProfile() {
+    void testGetUserProfile() {
         when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
 
         Optional<User> userProfile = userService.getUserProfile(1L);
@@ -108,9 +114,8 @@ import static org.mockito.Mockito.*;
         assertEquals("testuser", userProfile.get().getUsername());
     }
 
-    // Test updating user profile information.
     @Test
-     void testUpdateUserProfile() {
+    void testUpdateUserProfile() {
         UserUpdateDTO updateDTO = new UserUpdateDTO();
         updateDTO.setUsername("updatedUser");
         updateDTO.setEmail("updated@example.com");
@@ -126,7 +131,6 @@ import static org.mockito.Mockito.*;
         assertEquals("updated@example.com", updatedUser.getEmail());
     }
 
-    // Test updating user profile when user ID does not exist.
     @Test
     void testUpdateUserProfile_UserNotFound() {
         UserUpdateDTO updateDTO = new UserUpdateDTO();
