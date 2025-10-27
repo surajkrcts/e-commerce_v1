@@ -23,33 +23,40 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    // Constructor Injection
     @Autowired
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
+    // User Registration
     public User addUser(User user) {
         logger.info("Attempting to add new user with username: {}", user != null ? user.getUsername() : "null");
 
+        // Validate input
         if (user == null || user.getUsername() == null || user.getUsername().isEmpty()) {
             throw new IllegalArgumentException("User and username must be provided.");
         }
 
+        // Encode the password before saving
         String encodedPassword = this.passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
+        // Check for existing user
         Optional<User> existingUser = this.userRepository.findByUsername(user.getUsername());
         if (existingUser.isPresent()) {
             logger.warn("Registration failed: User with username '{}' already exists.", user.getUsername());
             throw new DuplicateResourceException("User with username '" + user.getUsername() + "' already exists.");
         }
 
+        // Save the new user
         User savedUser = userRepository.save(user);
         logger.info("Successfully added user with ID: {}", savedUser.getUserId());
         return savedUser;
     }
 
+    // User Login
     public User loginUser(LoginRequest loginRequest) {
         if (loginRequest == null || loginRequest.getUsername() == null) {
             throw new IllegalArgumentException("LoginRequest and username must be provided.");
