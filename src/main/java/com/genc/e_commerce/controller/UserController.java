@@ -2,6 +2,7 @@ package com.genc.e_commerce.controller;
 
 import com.genc.e_commerce.dto.LoginRequest;
 import com.genc.e_commerce.dto.LoginResponse;
+import com.genc.e_commerce.dto.UserUpdateDTO;
 import com.genc.e_commerce.entity.User;
 import com.genc.e_commerce.service.UserService;
 import jakarta.validation.Valid;
@@ -40,7 +41,7 @@ public class UserController {
         } catch (DataIntegrityViolationException e) {
             logger.warn("Registration failed for username '{}' because it already exists.", user.getUsername());
             response.put("error", "Username or email already exists.");
-            return new ResponseEntity<>(response, HttpStatus.CONFLICT); // 409 Conflict is more appropriate
+            return new ResponseEntity<>(response, HttpStatus.CONFLICT);
         } catch (Exception e) {
             logger.error("An unexpected error occurred during user registration for username '{}'", user.getUsername(), e);
             response.put("error", "Server error during registration.");
@@ -49,7 +50,7 @@ public class UserController {
     }
 
     @PostMapping("/login-user")
-    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Object> loginUser(@RequestBody LoginRequest loginRequest) {
         logger.info("Login attempt for user: {}", loginRequest.getUsername());
         try {
             User userData = userService.loginUser(loginRequest);
@@ -68,7 +69,7 @@ public class UserController {
     }
 
     @GetMapping("/get-user-details/{userId}")
-    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+    public ResponseEntity<Map<String, Object>>getUserProfile(@PathVariable Long userId) {
         logger.info("Request received to fetch profile for user ID: {}", userId);
         Map<String, Object> response = new HashMap<>();
         Optional<User> userOptional = userService.getUserProfile(userId);
@@ -86,7 +87,7 @@ public class UserController {
     }
 
     @PutMapping("/update-user-data/{userId}")
-    public ResponseEntity<Map<String, Object>> updateUserProfile(@PathVariable Long userId, @RequestBody User userData) {
+    public ResponseEntity<Map<String, Object>> updateUserProfile(@PathVariable Long userId, @RequestBody UserUpdateDTO userData) {
         logger.info("Request received to update profile for user ID: {}", userId);
         logger.debug("Update payload for user ID {}: {}", userId, userData);
         Map<String, Object> response = new HashMap<>();
