@@ -60,7 +60,7 @@ public class UserController {
                     userData.getRole());
             logger.info("User '{}' logged in successfully.", userData.getUsername());
             return ResponseEntity.ok(loginResponse);
-        } catch (RuntimeException e) { // Assuming service throws an exception on failure
+        } catch (RuntimeException e) {
             logger.warn("Failed login attempt for user: {}. Reason: {}", loginRequest.getUsername(), e.getMessage());
             Map<String, String> response = new HashMap<>();
             response.put("error", "Invalid username or password.");
