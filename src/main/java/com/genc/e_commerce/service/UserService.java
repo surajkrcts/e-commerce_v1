@@ -7,8 +7,8 @@ import com.genc.e_commerce.exception.AuthFailedException;
 import com.genc.e_commerce.exception.DuplicateResourceException;
 import com.genc.e_commerce.exception.ResourceNotFoundException;
 import com.genc.e_commerce.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,8 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    private static final Logger logger = LogManager.getLogger(UserService.class);
+
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;

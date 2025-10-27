@@ -153,7 +153,7 @@
         loginButton.disabled = true;
 
         try {
-            // *** Using async/await for modern asynchronous fetch ***
+            // Call the login API
             const response = await fetch(`${BASE_URL}/api/login-user`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -164,7 +164,7 @@
                 const data = await response.json();
                 localStorage.setItem('authToken', data.token || 'logged_in_token');
                 localStorage.setItem('username', username);
-                localStorage.setItem('userId', data.id || data.userId || '1');
+                localStorage.setItem('userId', data.userId);
 
                 showToast(`Login Successful! Welcome, ${username}`, 'success');
 

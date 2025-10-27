@@ -116,7 +116,7 @@
         try {
             const payload = { username, email, password, role };
 
-            // *** Using async/await for modern asynchronous fetch ***
+            // post request to registration API
             const response = await fetch(`${BASE_URL}/api/register-user`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
