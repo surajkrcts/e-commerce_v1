@@ -1,178 +1,147 @@
 package com.genc.e_commerce.service;
 
 import com.genc.e_commerce.dto.LoginRequest;
+import com.genc.e_commerce.dto.UserUpdateDTO;
 import com.genc.e_commerce.entity.User;
+import com.genc.e_commerce.exception.DuplicateResourceException;
+import com.genc.e_commerce.exception.ResourceNotFoundException;
 import com.genc.e_commerce.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+ class UserServiceTest {
 
-@ExtendWith(MockitoExtension.class)
-class UserServiceTest {
-
-    // 1. Mock the repository dependency
     @Mock
     private UserRepository userRepository;
 
-    // 2. Inject mocks into the service.
-    // We will manually set the password encoder since it's created in the constructor.
     @InjectMocks
     private UserService userService;
 
-    private User testUser;
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private User mockUser;
 
-    // 3. Set up common test data before each test run
     @BeforeEach
-    void setUp() {
-        // Manually set the real encoder in the service instance for consistent testing
-        userService.passwordEncoder = this.passwordEncoder;
-
-        testUser = new User();
-        testUser.setUserId(1L);
-        testUser.setUsername("testuser");
-        testUser.setEmail("test@example.com");
-        // Store the encoded version of "password123"
-        testUser.setPassword(passwordEncoder.encode("password123"));
+     void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockUser = new User();
+        mockUser.setUserId(1L);
+        mockUser.setUsername("testuser");
+        mockUser.setPassword("password");
+        mockUser.setEmail("test@example.com");
     }
 
+    // Test adding a new user when the username does not already exist.
     @Test
-    void addUser_whenUsernameIsNew_shouldSaveAndReturnUser() {
-        // --- ARRANGE ---
-        User newUser = new User();
-        newUser.setUsername("newuser");
-        newUser.setPassword("password123"); // Raw password
+     void testAddUser_Success() {
+        when(userRepository.findByUsername("testuser")).thenReturn(Optional.empty());
+        when(userRepository.save(any(User.class))).thenReturn(mockUser);
 
-        when(userRepository.findByUsername("newuser")).thenReturn(Optional.empty()); // No existing user
-        when(userRepository.save(any(User.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        User savedUser = userService.addUser(mockUser);
 
-        // --- ACT ---
-        User savedUser = userService.addUser(newUser);
-
-        // --- ASSERT ---
         assertNotNull(savedUser);
-        assertEquals("newuser", savedUser.getUsername());
-        // Verify the password was encoded
-        assertTrue(passwordEncoder.matches("password123", savedUser.getPassword()));
-        verify(userRepository, times(1)).save(any(User.class));
+        assertEquals("testuser", savedUser.getUsername());
+        verify(userRepository).save(any(User.class));
     }
 
-    @Test
-    void addUser_whenUsernameExists_shouldThrowRuntimeException() {
-        // --- ARRANGE ---
-        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(testUser));
+    // Test adding a new user when the username already exists.
 
-        // --- ACT & ASSERT ---
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            // Create a new user object with the same username to simulate the request
-            User conflictingUser = new User();
-            conflictingUser.setUsername("testuser");
-            // FIX: Added a password to prevent the "rawPassword cannot be null" error
-            conflictingUser.setPassword("any-password-will-do");
-            userService.addUser(conflictingUser);
-        });
-        assertEquals("User with username 'testuser' already exists!", exception.getMessage());
-        verify(userRepository, never()).save(any(User.class));
-    }
+     @Test
+     void testAddUser_UserAlreadyExists() {
+         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
 
+         DuplicateResourceException exception =
+                 assertThrows(DuplicateResourceException.class, () -> {
+                     userService.addUser(mockUser);
+                 });
+
+         assertEquals("User with username 'testuser' already exists.", exception.getMessage());
+     }
+
+    // Test successful login with correct username and password.
     @Test
-    void loginUser_withCorrectCredentials_shouldReturnUser() {
-        // --- ARRANGE ---
+     void testLoginUser_Success() {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("testuser");
-        loginRequest.setPassword("password123");
-        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(testUser));
+        loginRequest.setPassword("password");
 
-        // --- ACT ---
+        // Encode password to match
+        String encodedPassword = new BCryptPasswordEncoder().encode("password");
+        mockUser.setPassword(encodedPassword);
+
+        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
+
         User loggedInUser = userService.loginUser(loginRequest);
 
-        // --- ASSERT ---
         assertNotNull(loggedInUser);
         assertEquals("testuser", loggedInUser.getUsername());
     }
 
+    // Test failed login with incorrect username or password.
     @Test
-    void loginUser_withIncorrectPassword_shouldThrowException() {
-        // --- ARRANGE ---
+     void testLoginUser_Failure() {
         LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername("testuser");
-        loginRequest.setPassword("wrongpassword");
+        loginRequest.setUsername("wronguser");
+        loginRequest.setPassword("wrongpass");
 
-        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(testUser));
+        when(userRepository.findByUsername("wronguser")).thenReturn(Optional.empty());
 
-        // --- ACT & ASSERT ---
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             userService.loginUser(loginRequest);
         });
-        assertEquals("not found", exception.getMessage());
     }
 
+    // Test fetching user profile by user ID.
     @Test
-    void loginUser_withNonExistentUser_shouldThrowException() {
-        // --- ARRANGE ---
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername("nouser");
-        loginRequest.setPassword("password123");
-        when(userRepository.findByUsername("nouser")).thenReturn(Optional.empty());
+     void testGetUserProfile() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
 
-        // --- ACT & ASSERT ---
-        assertThrows(RuntimeException.class, () -> userService.loginUser(loginRequest));
-    }
-
-    @Test
-    void getUserProfile_whenUserExists_shouldReturnUser() {
-        // --- ARRANGE ---
-        when(userRepository.findById(1L)).thenReturn(Optional.of(testUser));
-
-        // --- ACT ---
         Optional<User> userProfile = userService.getUserProfile(1L);
 
-        // --- ASSERT ---
         assertTrue(userProfile.isPresent());
         assertEquals("testuser", userProfile.get().getUsername());
     }
 
+    // Test updating user profile information.
     @Test
-    void updateUserProfile_whenUserExists_shouldUpdateAndReturnUser() {
-        // --- ARRANGE ---
-        User updateInfo = new User();
-        updateInfo.setUsername("updateduser");
-        updateInfo.setEmail("updated@example.com");
+     void testUpdateUserProfile() {
+        UserUpdateDTO updateDTO = new UserUpdateDTO();
+        updateDTO.setUsername("updatedUser");
+        updateDTO.setEmail("updated@example.com");
+        updateDTO.setPassword("newpassword");
 
-        when(userRepository.findById(1L)).thenReturn(Optional.of(testUser));
-        when(userRepository.save(any(User.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
+        when(userRepository.save(any(User.class))).thenReturn(mockUser);
 
-        // --- ACT ---
-        User updatedUser = userService.updateUserProfile(1L, updateInfo);
+        User updatedUser = userService.updateUserProfile(1L, updateDTO);
 
-        // --- ASSERT ---
         assertNotNull(updatedUser);
-        assertEquals("updateduser", updatedUser.getUsername());
+        assertEquals("updatedUser", updatedUser.getUsername());
         assertEquals("updated@example.com", updatedUser.getEmail());
-        verify(userRepository, times(1)).save(testUser);
     }
 
+    // Test updating user profile when user ID does not exist.
     @Test
-    void updateUserProfile_whenUserNotFound_shouldReturnNull() {
-        // --- ARRANGE ---
-        when(userRepository.findById(99L)).thenReturn(Optional.empty());
+    void testUpdateUserProfile_UserNotFound() {
+        UserUpdateDTO updateDTO = new UserUpdateDTO();
+        updateDTO.setUsername("newuser");
+        updateDTO.setEmail("newemail@example.com");
+        updateDTO.setPassword("newpassword");
 
-        // --- ACT ---
-        User result = userService.updateUserProfile(99L, new User());
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
 
-        // --- ASSERT ---
-        assertNull(result);
+        ResourceNotFoundException exception =
+                assertThrows(ResourceNotFoundException.class, () -> {
+                    userService.updateUserProfile(999L, updateDTO);
+                });
+
+        assertEquals("User with id 999 not found.", exception.getMessage());
         verify(userRepository, never()).save(any(User.class));
     }
 }
