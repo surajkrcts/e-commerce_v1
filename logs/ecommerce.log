@@ -523,3 +523,261 @@
 2025-10-25 00:43:18.428 INFO  [http-nio-8092-exec-7] CartController - Successfully deleted cart item with ID: 14
 2025-10-25 00:43:18.439 INFO  [http-nio-8092-exec-4] CartController - Fetching cart details for user ID: 3
 2025-10-25 00:43:18.453 DEBUG [http-nio-8092-exec-4] CartController - Found 0 cart items for user ID: 3
+2025-10-25 08:54:16.337 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 8444 (C:\Cognizant Training\personalPracEcom\e-commerce\target\classes started by 2442565 in C:\Cognizant Training\personalPracEcom\e-commerce)
+2025-10-25 08:54:16.352 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-25 08:54:16.354 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-25 08:54:44.367 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 29.061 seconds (process running for 31.763)
+2025-10-25 08:54:49.331 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-25 08:54:49.995 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 4 products
+2025-10-25 08:57:08.636 INFO  [http-nio-8092-exec-6] UserController - Login attempt for user: rk
+2025-10-25 08:57:08.996 INFO  [http-nio-8092-exec-6] UserController - User 'rk' logged in successfully.
+2025-10-25 08:57:15.965 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-25 08:57:15.984 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 4 products
+2025-10-25 08:57:23.326 INFO  [http-nio-8092-exec-10] CartController - Fetching cart details for user ID: 3
+2025-10-25 08:57:23.417 DEBUG [http-nio-8092-exec-10] CartController - Found 0 cart items for user ID: 3
+2025-10-25 08:57:26.795 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-25 08:57:26.817 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 4 products
+2025-10-25 08:57:31.957 DEBUG [http-nio-8092-exec-3] CartController - Request received to add product to cart: CartRequest(userId=3, productId=1, quantity=1)
+2025-10-25 08:57:31.966 INFO  [http-nio-8092-exec-3] CartService - Attempting to add product to cart for user ID:3 and product ID:1
+2025-10-25 08:57:31.972 DEBUG [http-nio-8092-exec-3] CartService - User found: rk
+2025-10-25 08:57:31.980 DEBUG [http-nio-8092-exec-3] CartService - Product found: Ultra Thin Laptop Pro
+2025-10-25 08:57:32.105 INFO  [http-nio-8092-exec-3] CartService - New cart item created with Quantity: 1
+2025-10-25 08:57:32.396 INFO  [http-nio-8092-exec-3] CartController - Product 1 added to cart for user 3.
+2025-10-25 08:57:36.720 INFO  [http-nio-8092-exec-5] CartController - Fetching cart details for user ID: 3
+2025-10-25 08:57:36.778 DEBUG [http-nio-8092-exec-5] CartController - Found 1 cart items for user ID: 3
+2025-10-25 08:57:58.275 INFO  [http-nio-8092-exec-7] OrderController - Request received to create order for user ID: 3
+2025-10-25 08:57:58.276 DEBUG [http-nio-8092-exec-7] OrderController - Order creation payload: OrderRequest(userId=3, totalAmount=1299.99, orderDate=null, status=null)
+2025-10-25 08:57:58.412 INFO  [http-nio-8092-exec-7] OrderController - Successfully created order with ID: 23 for user ID: 3
+2025-10-25 08:58:02.514 INFO  [http-nio-8092-exec-9] ProductController - Request received to get all products
+2025-10-25 08:58:02.555 DEBUG [http-nio-8092-exec-9] ProductController - Fetched 4 products
+2025-10-25 08:58:04.557 INFO  [http-nio-8092-exec-10] CartController - Fetching cart details for user ID: 3
+2025-10-25 08:58:04.586 DEBUG [http-nio-8092-exec-10] CartController - Found 1 cart items for user ID: 3
+2025-10-25 08:58:06.507 INFO  [http-nio-8092-exec-1] OrderController - Request received to create order for user ID: 3
+2025-10-25 08:58:06.508 DEBUG [http-nio-8092-exec-1] OrderController - Order creation payload: OrderRequest(userId=3, totalAmount=1299.99, orderDate=null, status=null)
+2025-10-25 08:58:06.528 INFO  [http-nio-8092-exec-1] OrderController - Successfully created order with ID: 23 for user ID: 3
+2025-10-25 08:58:12.828 INFO  [http-nio-8092-exec-4] OrderController - Request received to get order details for order ID: 23
+2025-10-25 08:58:12.852 INFO  [http-nio-8092-exec-4] OrderController - Successfully fetched details for order ID: 23
+2025-10-25 08:58:16.445 INFO  [http-nio-8092-exec-5] PaymentController - Received payment processing request for orderId: 23
+2025-10-25 08:58:16.446 DEBUG [http-nio-8092-exec-5] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=CASH_ON_DELIVERY
+2025-10-25 08:58:16.459 INFO  [http-nio-8092-exec-5] PaymentService - Attempting to process payment for orderId: 23
+2025-10-25 08:58:16.468 DEBUG [http-nio-8092-exec-5] PaymentService - Payment method for orderId 23: CASH_ON_DELIVERY
+2025-10-25 08:58:16.469 INFO  [http-nio-8092-exec-5] PaymentService - Payment successful for orderId: 23. Order status set to PENDING.
+2025-10-25 08:58:16.599 INFO  [http-nio-8092-exec-5] PaymentService - Payment processed and saved successfully for orderId: 23
+2025-10-25 08:58:16.665 INFO  [http-nio-8092-exec-5] PaymentController - Successfully processed payment for orderId: 23
+2025-10-25 08:58:18.772 INFO  [http-nio-8092-exec-6] OrderController - Request received to get order details for order ID: 23
+2025-10-25 08:58:18.786 INFO  [http-nio-8092-exec-6] OrderController - Successfully fetched details for order ID: 23
+2025-10-25 08:58:48.194 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-25 08:58:48.227 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 4 products
+2025-10-25 08:58:50.562 INFO  [http-nio-8092-exec-9] CartController - Fetching cart details for user ID: 3
+2025-10-25 08:58:50.589 DEBUG [http-nio-8092-exec-9] CartController - Found 0 cart items for user ID: 3
+2025-10-25 08:59:12.534 INFO  [http-nio-8092-exec-1] ProductController - Request received to get all products
+2025-10-25 08:59:12.581 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 4 products
+2025-10-25 08:59:19.929 INFO  [http-nio-8092-exec-2] CartController - Fetching cart details for user ID: 3
+2025-10-25 08:59:19.953 DEBUG [http-nio-8092-exec-2] CartController - Found 0 cart items for user ID: 3
+2025-10-25 08:59:21.895 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-25 08:59:21.922 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 4 products
+2025-10-26 20:08:47.918 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 24128 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-26 20:08:47.933 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 20:08:47.935 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 20:09:39.125 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 24568 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-26 20:09:39.134 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-26 20:09:39.136 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-26 20:09:45.897 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.174 seconds (process running for 8.123)
+2025-10-26 20:10:05.128 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: user
+2025-10-26 20:10:05.231 WARN  [http-nio-8092-exec-2] UserController - Failed login attempt for user: user. Reason: not found
+2025-10-26 20:10:28.582 INFO  [http-nio-8092-exec-3] UserController - Request received to register a new user with username: testuser1
+2025-10-26 20:10:28.797 INFO  [http-nio-8092-exec-3] UserController - User 'testuser1' registered successfully with ID: 1
+2025-10-26 20:10:42.935 INFO  [http-nio-8092-exec-6] UserController - Login attempt for user: testuser1
+2025-10-26 20:10:43.014 INFO  [http-nio-8092-exec-6] UserController - User 'testuser1' logged in successfully.
+2025-10-26 20:10:44.621 INFO  [http-nio-8092-exec-9] ProductController - Request received to get all products
+2025-10-26 20:10:44.654 DEBUG [http-nio-8092-exec-9] ProductController - Fetched 0 products
+2025-10-26 20:10:56.621 INFO  [http-nio-8092-exec-10] CartController - Fetching cart details for user ID: 1
+2025-10-26 20:10:56.664 DEBUG [http-nio-8092-exec-10] CartController - Found 0 cart items for user ID: 1
+2025-10-26 20:10:59.951 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-26 20:10:59.959 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-26 20:11:24.649 INFO  [http-nio-8092-exec-3] UserController - Request received to register a new user with username: admin
+2025-10-26 20:11:24.798 INFO  [http-nio-8092-exec-3] UserController - User 'admin' registered successfully with ID: 2
+2025-10-26 20:11:34.232 INFO  [http-nio-8092-exec-6] UserController - Login attempt for user: admin
+2025-10-26 20:11:34.346 INFO  [http-nio-8092-exec-6] UserController - User 'admin' logged in successfully.
+2025-10-26 20:11:35.930 INFO  [http-nio-8092-exec-7] ProductController - Request received to get all products
+2025-10-26 20:11:35.952 DEBUG [http-nio-8092-exec-7] ProductController - Fetched 0 products
+2025-10-27 08:42:10.304 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 27780 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 08:42:10.314 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 08:42:10.314 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 08:42:17.143 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.32 seconds (process running for 8.699)
+2025-10-27 08:42:29.447 INFO  [http-nio-8092-exec-4] UserController - Login attempt for user: user
+2025-10-27 08:42:29.515 WARN  [http-nio-8092-exec-4] UserController - Failed login attempt for user: user. Reason: not found
+2025-10-27 08:42:55.905 INFO  [http-nio-8092-exec-3] UserController - Login attempt for user: testuser1
+2025-10-27 08:42:55.975 INFO  [http-nio-8092-exec-3] UserController - User 'testuser1' logged in successfully.
+2025-10-27 08:45:40.885 INFO  [http-nio-8092-exec-7] ProductController - Request received to get all products
+2025-10-27 08:45:40.918 DEBUG [http-nio-8092-exec-7] ProductController - Fetched 0 products
+2025-10-27 08:46:06.575 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 08:46:06.585 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 08:46:35.492 INFO  [http-nio-8092-exec-10] UserController - Login attempt for user: testuser1
+2025-10-27 08:46:35.543 INFO  [http-nio-8092-exec-10] UserController - User 'testuser1' logged in successfully.
+2025-10-27 08:46:37.140 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-27 08:46:37.149 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 0 products
+2025-10-27 08:48:40.922 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: testuser1
+2025-10-27 08:48:40.975 INFO  [http-nio-8092-exec-2] UserController - User 'testuser1' logged in successfully.
+2025-10-27 08:48:42.591 INFO  [http-nio-8092-exec-10] ProductController - Request received to get all products
+2025-10-27 08:48:42.599 DEBUG [http-nio-8092-exec-10] ProductController - Fetched 0 products
+2025-10-27 08:49:47.592 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-27 08:49:47.597 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 0 products
+2025-10-27 08:50:39.577 INFO  [http-nio-8092-exec-9] UserController - Login attempt for user: testuser1
+2025-10-27 08:50:39.687 INFO  [http-nio-8092-exec-9] UserController - User 'testuser1' logged in successfully.
+2025-10-27 08:50:41.260 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 08:50:41.274 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 09:01:05.798 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 29996 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 09:01:05.805 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 09:01:05.806 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 09:01:14.131 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 8.8 seconds (process running for 10.226)
+2025-10-27 09:01:16.515 INFO  [http-nio-8092-exec-1] UserController - Login attempt for user: testuser1
+2025-10-27 09:01:16.648 INFO  [http-nio-8092-exec-1] UserController - User 'testuser1' logged in successfully.
+2025-10-27 09:01:18.310 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 09:01:18.353 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 09:20:54.401 INFO  [http-nio-8092-exec-8] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:20:54.490 INFO  [http-nio-8092-exec-8] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:20:57.414 INFO  [http-nio-8092-exec-10] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:20:57.471 INFO  [http-nio-8092-exec-10] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:02.292 INFO  [http-nio-8092-exec-1] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:02.380 INFO  [http-nio-8092-exec-1] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:02.858 INFO  [http-nio-8092-exec-3] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:02.961 INFO  [http-nio-8092-exec-3] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:06.763 INFO  [http-nio-8092-exec-2] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:06.882 INFO  [http-nio-8092-exec-2] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:11.826 INFO  [http-nio-8092-exec-5] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:11.930 INFO  [http-nio-8092-exec-5] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:18.432 INFO  [http-nio-8092-exec-4] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:18.553 INFO  [http-nio-8092-exec-4] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:20.319 INFO  [http-nio-8092-exec-6] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:20.437 INFO  [http-nio-8092-exec-6] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:25.051 INFO  [http-nio-8092-exec-7] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:25.142 INFO  [http-nio-8092-exec-7] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:25.841 INFO  [http-nio-8092-exec-8] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:25.940 INFO  [http-nio-8092-exec-8] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:27.832 INFO  [http-nio-8092-exec-9] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:27.973 INFO  [http-nio-8092-exec-9] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:28.049 INFO  [http-nio-8092-exec-10] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:28.141 INFO  [http-nio-8092-exec-10] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:53.526 INFO  [http-nio-8092-exec-1] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:53.588 INFO  [http-nio-8092-exec-1] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:21:55.698 INFO  [http-nio-8092-exec-3] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:21:55.764 INFO  [http-nio-8092-exec-3] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:22:09.462 INFO  [http-nio-8092-exec-5] UserController - Request received to update profile for user ID: 1
+2025-10-27 09:22:09.462 DEBUG [http-nio-8092-exec-5] UserController - Update payload for user ID 1: User(userId=null, username=testuser1, password=test@123, email=testuser1@mail.com, role=null)
+2025-10-27 09:22:09.737 INFO  [http-nio-8092-exec-5] UserController - Profile updated successfully for user ID: 1
+2025-10-27 09:22:10.775 INFO  [http-nio-8092-exec-4] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:22:10.911 INFO  [http-nio-8092-exec-4] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:22:15.085 INFO  [http-nio-8092-exec-7] ProductController - Request received to get all products
+2025-10-27 09:22:15.092 DEBUG [http-nio-8092-exec-7] ProductController - Fetched 0 products
+2025-10-27 09:26:14.387 INFO  [http-nio-8092-exec-1] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:26:14.500 INFO  [http-nio-8092-exec-1] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:26:18.084 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 09:26:18.089 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 09:26:27.599 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-27 09:26:27.608 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 0 products
+2025-10-27 09:26:27.623 INFO  [http-nio-8092-exec-7] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:26:27.688 INFO  [http-nio-8092-exec-7] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:26:32.259 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-27 09:26:32.264 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 0 products
+2025-10-27 09:26:34.399 INFO  [http-nio-8092-exec-10] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:26:34.489 INFO  [http-nio-8092-exec-10] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:26:46.405 INFO  [http-nio-8092-exec-9] UserController - Request received to update profile for user ID: 1
+2025-10-27 09:26:46.406 DEBUG [http-nio-8092-exec-9] UserController - Update payload for user ID 1: User(userId=null, username=testuser1, password=testuser1@123, email=testuser1@mail.com, role=null)
+2025-10-27 09:26:46.415 INFO  [http-nio-8092-exec-9] UserController - Profile updated successfully for user ID: 1
+2025-10-27 09:26:47.419 INFO  [http-nio-8092-exec-1] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:26:47.542 INFO  [http-nio-8092-exec-1] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:26:51.470 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 09:26:51.471 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 09:26:55.056 INFO  [http-nio-8092-exec-5] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:26:55.166 INFO  [http-nio-8092-exec-5] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:27:01.473 INFO  [http-nio-8092-exec-4] UserController - Request received to update profile for user ID: 1
+2025-10-27 09:27:01.474 DEBUG [http-nio-8092-exec-4] UserController - Update payload for user ID 1: User(userId=null, username=testuser1, password=test@123, email=testuser1@mail.com, role=null)
+2025-10-27 09:27:01.482 INFO  [http-nio-8092-exec-4] UserController - Profile updated successfully for user ID: 1
+2025-10-27 09:27:02.490 INFO  [http-nio-8092-exec-7] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:27:02.633 INFO  [http-nio-8092-exec-7] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:27:04.167 INFO  [http-nio-8092-exec-6] ProductController - Request received to get all products
+2025-10-27 09:27:04.175 DEBUG [http-nio-8092-exec-6] ProductController - Fetched 0 products
+2025-10-27 09:27:11.553 INFO  [http-nio-8092-exec-10] UserController - Login attempt for user: testuser1
+2025-10-27 09:27:11.714 WARN  [http-nio-8092-exec-10] UserController - Failed login attempt for user: testuser1. Reason: not found
+2025-10-27 09:28:46.217 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: testuser1
+2025-10-27 09:28:46.312 WARN  [http-nio-8092-exec-2] UserController - Failed login attempt for user: testuser1. Reason: not found
+2025-10-27 09:35:03.278 INFO  [http-nio-8092-exec-7] UserController - Login attempt for user: testuser1
+2025-10-27 09:35:03.334 WARN  [http-nio-8092-exec-7] UserController - Failed login attempt for user: testuser1. Reason: not found
+2025-10-27 09:35:09.716 INFO  [http-nio-8092-exec-8] UserController - Login attempt for user: testuser1
+2025-10-27 09:35:09.810 INFO  [http-nio-8092-exec-8] UserController - User 'testuser1' logged in successfully.
+2025-10-27 09:35:11.742 INFO  [http-nio-8092-exec-10] ProductController - Request received to get all products
+2025-10-27 09:35:11.759 DEBUG [http-nio-8092-exec-10] ProductController - Fetched 0 products
+2025-10-27 09:35:18.860 INFO  [http-nio-8092-exec-9] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:35:18.976 INFO  [http-nio-8092-exec-9] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:35:28.015 INFO  [http-nio-8092-exec-1] UserController - Request received to update profile for user ID: 1
+2025-10-27 09:35:28.015 DEBUG [http-nio-8092-exec-1] UserController - Update payload for user ID 1: User(userId=null, username=testuser1, password=test@123, email=testuser1@mail.com, role=null)
+2025-10-27 09:35:28.028 INFO  [http-nio-8092-exec-1] UserController - Profile updated successfully for user ID: 1
+2025-10-27 09:35:29.049 INFO  [http-nio-8092-exec-3] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:35:29.159 INFO  [http-nio-8092-exec-3] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:35:34.214 INFO  [http-nio-8092-exec-5] ProductController - Request received to get all products
+2025-10-27 09:35:34.215 DEBUG [http-nio-8092-exec-5] ProductController - Fetched 0 products
+2025-10-27 09:35:42.783 INFO  [http-nio-8092-exec-4] UserController - Login attempt for user: testuser1
+2025-10-27 09:35:42.909 WARN  [http-nio-8092-exec-4] UserController - Failed login attempt for user: testuser1. Reason: not found
+2025-10-27 09:36:10.497 INFO  [http-nio-8092-exec-7] UserController - Login attempt for user: testuser1
+2025-10-27 09:36:10.550 WARN  [http-nio-8092-exec-7] UserController - Failed login attempt for user: testuser1. Reason: not found
+2025-10-27 09:44:34.111 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 20436 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 09:44:34.119 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 09:44:34.120 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 09:44:41.519 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.86 seconds (process running for 8.877)
+2025-10-27 09:44:41.792 INFO  [http-nio-8092-exec-1] UserController - Login attempt for user: testuser1
+2025-10-27 09:44:41.792 INFO  [http-nio-8092-exec-1] UserService - Attempting login for user: testuser1
+2025-10-27 09:44:41.938 WARN  [http-nio-8092-exec-1] UserService - Login failed for user: testuser1
+2025-10-27 09:44:41.938 WARN  [http-nio-8092-exec-1] UserController - Failed login attempt for user: testuser1. Reason: Invalid username or password.
+2025-10-27 09:44:48.174 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: testuser1
+2025-10-27 09:44:48.174 INFO  [http-nio-8092-exec-2] UserService - Attempting login for user: testuser1
+2025-10-27 09:44:48.236 INFO  [http-nio-8092-exec-2] UserService - Successful login for user ID: 1
+2025-10-27 09:44:48.236 INFO  [http-nio-8092-exec-2] UserController - User 'testuser1' logged in successfully.
+2025-10-27 09:44:50.196 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-27 09:44:50.264 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 0 products
+2025-10-27 09:44:52.054 INFO  [http-nio-8092-exec-5] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:44:52.054 DEBUG [http-nio-8092-exec-5] UserService - Fetching profile for user ID: 1
+2025-10-27 09:44:52.079 INFO  [http-nio-8092-exec-5] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:44:57.478 INFO  [http-nio-8092-exec-6] UserController - Request received to update profile for user ID: 1
+2025-10-27 09:44:57.478 DEBUG [http-nio-8092-exec-6] UserController - Update payload for user ID 1: UserUpdateDTO(username=testuser1, email=testuser1@mail.com, password=test@123)
+2025-10-27 09:44:57.587 INFO  [http-nio-8092-exec-6] UserService - Password successfully reset for user ID: 1
+2025-10-27 09:44:57.753 INFO  [http-nio-8092-exec-6] UserController - Profile updated successfully for user ID: 1
+2025-10-27 09:44:58.717 INFO  [http-nio-8092-exec-7] UserController - Request received to fetch profile for user ID: 1
+2025-10-27 09:44:58.717 DEBUG [http-nio-8092-exec-7] UserService - Fetching profile for user ID: 1
+2025-10-27 09:44:58.725 INFO  [http-nio-8092-exec-7] UserController - Successfully fetched profile for user ID: 1
+2025-10-27 09:45:00.174 INFO  [http-nio-8092-exec-9] ProductController - Request received to get all products
+2025-10-27 09:45:00.174 DEBUG [http-nio-8092-exec-9] ProductController - Fetched 0 products
+2025-10-27 09:45:08.613 INFO  [http-nio-8092-exec-10] UserController - Login attempt for user: testuser1
+2025-10-27 09:45:08.613 INFO  [http-nio-8092-exec-10] UserService - Attempting login for user: testuser1
+2025-10-27 09:45:08.686 INFO  [http-nio-8092-exec-10] UserService - Successful login for user ID: 1
+2025-10-27 09:45:08.686 INFO  [http-nio-8092-exec-10] UserController - User 'testuser1' logged in successfully.
+2025-10-27 09:45:10.298 INFO  [http-nio-8092-exec-2] ProductController - Request received to get all products
+2025-10-27 09:45:10.307 DEBUG [http-nio-8092-exec-2] ProductController - Fetched 0 products
+2025-10-27 09:52:54.975 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 20436 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 09:52:54.978 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 09:52:54.978 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 09:52:55.672 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 0.745 seconds (process running for 503.031)
+2025-10-27 09:52:58.201 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 20436 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 09:52:58.203 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 09:52:58.203 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 09:52:59.245 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 1.073 seconds (process running for 506.603)
+2025-10-27 09:53:02.842 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 09:53:02.920 INFO  [main] UserService - Successfully added user with ID: 1
+2025-10-27 09:53:03.012 INFO  [main] UserService - Attempting login for user: testuser
+2025-10-27 09:53:03.064 INFO  [main] UserService - Successful login for user ID: 1
+2025-10-27 09:53:03.121 INFO  [main] UserService - Password successfully reset for user ID: 1
+2025-10-27 09:53:03.132 INFO  [main] UserService - Attempting login for user: wronguser
+2025-10-27 09:53:03.132 WARN  [main] UserService - Login failed for user: wronguser
+2025-10-27 09:53:03.138 DEBUG [main] UserService - Fetching profile for user ID: 1
+2025-10-27 09:53:03.143 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 09:53:03.196 WARN  [main] UserService - Registration failed: User with username 'testuser' already exists.
+2025-10-27 09:57:15.522 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 09:57:15.603 INFO  [main] UserService - Successfully added user with ID: 1
+2025-10-27 09:57:15.686 INFO  [main] UserService - Attempting login for user: testuser
+2025-10-27 09:57:15.742 INFO  [main] UserService - Successful login for user ID: 1
+2025-10-27 09:57:15.811 INFO  [main] UserService - Password successfully reset for user ID: 1
+2025-10-27 09:57:15.819 INFO  [main] UserService - Attempting login for user: wronguser
+2025-10-27 09:57:15.820 WARN  [main] UserService - Login failed for user: wronguser
+2025-10-27 09:57:15.832 DEBUG [main] UserService - Fetching profile for user ID: 1
+2025-10-27 09:57:15.838 INFO  [main] UserService - Attempting to add new user with username: testuser
+2025-10-27 09:57:15.895 WARN  [main] UserService - Registration failed: User with username 'testuser' already exists.

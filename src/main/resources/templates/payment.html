@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Payment Gateway</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS from order.html to maintain look and feel */
+        body { background-color: #f8f9fa; } 
+        .order-summary-card { background-color: #e9ecef; }
+        
+        /* Payment-specific styles */
+        .fa-check-circle { color: #198754; font-size: 3rem; }
+        .fa-times-circle { color: #dc3545; font-size: 3rem; }
+        
+        /* Optional: Match nav style */
+        .navbar-brand.fs-2 { font-weight: bold; color: var(--bs-primary); }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container-fluid container-lg">
+        <a class="navbar-brand fw-bold text-primary" href="order.html"><i class="fas fa-chevron-left me-2"></i>Back to Order</a>
+        <span class="navbar-text fw-bold h4 m-0"><i class="fas fa-credit-card me-2"></i>Payment Gateway</span>
+    </div>
+</nav>
+
+<main class="main-content d-flex justify-content-center align-items-center py-5 flex-grow-1">
+    <div class="container card-container">
+        <div class="row g-0 rounded shadow-lg overflow-hidden bg-light">
+            <div class="col-md-5 p-4 order-summary-card">
+                <h2 class="text-center mb-4">Order Summary</h2>
+                <div class="p-3">
+                    <p class="d-flex justify-content-between"><strong><i class="fas fa-receipt me-1"></i> Order ID:</strong> <span id="order-id-display" class="fw-bold">Loading...</span></p>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <h3 class="fw-bold text-primary">Total Amount:</h3>
+                        <h3 class="fw-bold text-success" id="total-amount-value">Loading...</h3>
+                    </div>
+                    <button id="pay-now-btn" class="btn btn-primary btn-lg w-100 mt-4" disabled>Select a Method</button>
+                </div>
+            </div>
+            <div class="col-md-7 p-4 bg-white">
+                <h2 class="text-center mb-4">Select a Payment Method</h2>
+                <div class="accordion" id="paymentAccordion">
+                    <div class="accordion-item" data-method="UPI"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUpi"><i class="fas fa-qrcode me-2"></i> UPI</button></h2><div id="collapseUpi" class="accordion-collapse collapse" data-bs-parent="#paymentAccordion"><div class="accordion-body"><input type="text" class="form-control upi-input" placeholder="Enter UPI ID (e.g., user@bank)"></div></div></div>
+                    <div class="accordion-item" data-method="BANK_TRANSFER"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetBanking"><i class="fas fa-university me-2"></i> Net Banking</button></h2><div id="collapseNetBanking" class="accordion-collapse collapse" data-bs-parent="#paymentAccordion"><div class="accordion-body"><select class="form-select bank-select"><option value="">Select your Bank</option><option value="sbi">State Bank of India</option><option value="icici">ICICI Bank</option><option value="hdfc">HDFC Bank</option></select></div></div></div>
+                    <div class="accordion-item" data-method="CARD"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCard"><i class="fas fa-credit-card me-2"></i> Card</button></h2><div id="collapseCard" class="accordion-collapse collapse" data-bs-parent="#paymentAccordion"><div class="accordion-body"><div class="mb-3"><input type="text" class="form-control card-number" placeholder="Card Number" maxlength="19" inputmode="numeric"></div><div class="mb-3"><input type="text" class="form-control card-name" placeholder="Name on Card"></div><div class="row"><div class="col-6 mb-3"><input type="text" class="form-control card-expiry" placeholder="MM/YY" maxlength="5"></div><div class="col-6 mb-3"><input type="text" class="form-control card-cvv" placeholder="CVV" maxlength="4" inputmode="numeric"></div></div></div></div></div>
+                    <div class="accordion-item" data-method="CASH_ON_DELIVERY"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCod"><i class="fas fa-money-bill-wave me-2"></i> Cash on Delivery</button></h2><div id="collapseCod" class="accordion-collapse collapse" data-bs-parent="#paymentAccordion"><div class="accordion-body"><p>Pay in cash upon delivery.</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="processingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center py-5"><div class="spinner-border text-primary mb-3" role="status"><span class="visually-hidden">Loading...</span></div><p class="lead">Processing your payment...</p></div></div></div></div>
+<div class="modal fade" id="choiceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Simulate Payment Gateway</h5></div><div class="modal-body text-center py-4"><p class="lead mb-4">How should the gateway respond?</p><div class="d-flex justify-content-around"><button type="button" class="btn btn-success btn-lg px-5" id="choiceSuccess">Success</button><button type="button" class="btn btn-danger btn-lg px-5" id="choiceFailed">Failed</button></div></div></div></div></div>
+<div class="modal fade" id="resultModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center py-5"><div id="result-icon"></div><p class="lead fw-bold mt-3" id="result-text"></p><p class="text-muted small">Order ID: <span class="fw-bold" id="saved-order-id"></span></p><button type="button" class="btn btn-primary mt-3" id="result-modal-button">Go to Orders</button></div></div></div></div>
+
+<footer class="footer mt-auto bg-light border-top">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                © 2025 E Commerce. All rights reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="#!" class="me-4"><i class="fab fa-facebook-f"></i></a>
+                <a href="#!" class="me-4"><i class="fab fa-twitter"></i></a>
+                <a href="#!" class="me-4"><i class="fab fa-google"></i></a>
+                <a href="#!"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script defer>
+    const BACKEND_URL = 'http://localhost:8092';
+
+    // --- 1. Element Selection ---
+    const payBtn = document.getElementById('pay-now-btn');
+    const orderIdDisplay = document.getElementById('order-id-display');
+    const amountDisplay = document.getElementById('total-amount-value');
+    const savedOrderEl = document.getElementById('saved-order-id');
+    const resultIcon = document.getElementById('result-icon');
+    const resultText = document.getElementById('result-text');
+    const resultButton = document.getElementById('result-modal-button'); // Added ID to button
+    let selectedMethod = null;
+
+    // --- 2. Initialize Bootstrap Modals ---
+    const processingModal = new bootstrap.Modal(document.getElementById('processingModal'));
+    const choiceModal = new bootstrap.Modal(document.getElementById('choiceModal'));
+    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+
+    /**
+     * Fetches details for a single order from the backend using orderId from URL.
+     */
+    async function fetchOrderDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        
+        if (!orderId) { 
+            alert("Order ID not found in URL! Redirecting to orders page."); 
+            window.location.href = 'order.html';
+            return; 
+        }
+
+        try {
+            const token = localStorage.getItem('authToken');
+            
+            const response = await fetch(`${BACKEND_URL}/order-details/${orderId}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (!response.ok) {
+                const errorBody = await response.json().catch(() => ({error: 'Unknown error'}));
+                throw new Error(errorBody.error || 'Order not found or server error.');
+            }
+
+            const orderData = await response.json();
+            const order = orderData.data || orderData; 
+            
+            orderIdDisplay.textContent = `#${order.orderId}`;
+            orderIdDisplay.dataset.orderId = order.orderId;
+            
+            const amount = parseFloat(order.totalAmount);
+            const formattedAmount = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount);
+            amountDisplay.textContent = formattedAmount;
+            
+            enablePay();
+        } catch (error) {
+            console.error("Failed to fetch order details:", error);
+            orderIdDisplay.textContent = `#${orderId}`;
+            amountDisplay.textContent = "Error fetching amount.";
+            disablePay();
+        }
+    }
+
+    /**
+     * Processes the payment by calling the backend API.
+     */
+    function processPayment(isPaymentSuccess) {
+        choiceModal.hide();
+        processingModal.show();
+        const orderId = orderIdDisplay.dataset.orderId;
+        const token = localStorage.getItem('authToken');
+
+        const params = new URLSearchParams({ 
+            orderId, 
+            isPaymentSuccess, 
+            paymentMethod: selectedMethod 
+        });
+
+        // Backend endpoint: /payment/process
+        fetch(`${BACKEND_URL}/payment/process?${params.toString()}`, { 
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+            .then(async response => {
+                const responseText = await response.text();
+                processingModal.hide();
+
+                if (response.ok) {
+                    // --- SUCCESS LOGIC: Order Status PENDING -> SHIPPED by Backend ---
+                    resultIcon.innerHTML = '<i class="fas fa-check-circle text-success"></i>';
+
+                    if (selectedMethod === 'CASH_ON_DELIVERY') {
+                        resultText.textContent = "Order Confirmed (COD)!";
+                    } else {
+                        resultText.textContent = "Payment Successful!";
+                    }
+
+                    savedOrderEl.textContent = '#' + orderId;
+                    resultButton.textContent = "View Updated Order";
+                    
+                    // 💥 CRUCIAL CHANGE: Redirect back to order.html with Order ID to show new status
+                    resultButton.onclick = () => window.location.href = `order.html?orderId=${orderId}`; 
+                    resultModal.show();
+
+                    // Automatic redirect after 3 seconds for better UX
+                    setTimeout(() => {
+                        window.location.href = `order.html?orderId=${orderId}`; 
+                    }, 3000); 
+
+                } else {
+                    // --- FAILURE LOGIC ---
+                    resultIcon.innerHTML = '<i class="fas fa-times-circle text-danger"></i>';
+                    resultText.textContent = `Payment Failed: ${responseText || "Try again."}`;
+                    savedOrderEl.textContent = '#' + orderId;
+                    resultButton.textContent = "Try Again"; 
+                    resultButton.onclick = () => resultModal.hide();
+                    resultModal.show();
+                }
+            })
+            .catch(err => {
+                processingModal.hide();
+                console.error('Payment request error:', err);
+                resultText.textContent = 'Payment Failed (Network or Server Error)';
+                resultIcon.innerHTML = '<i class="fas fa-times-circle text-danger"></i>';
+                resultButton.textContent = "Try Again";
+                resultButton.onclick = () => resultModal.hide();
+                resultModal.show();
+            });
+    }
+
+    // --- Validation and Event Listeners ---
+    function validate() { 
+        // Validation logic remains the same
+        if (!selectedMethod) return disablePay(); 
+        
+        if (selectedMethod === 'UPI') { 
+            const upiId = document.querySelector('#collapseUpi .upi-input')?.value.trim(); 
+            if (upiId && upiId.includes('@') && upiId.length > 5) return enablePay(); 
+        } 
+        
+        if (selectedMethod === 'BANK_TRANSFER' && document.querySelector('#collapseNetBanking .bank-select')?.value) return enablePay(); 
+        
+        if (selectedMethod === 'CASH_ON_DELIVERY') return enablePay(); 
+        
+        if (selectedMethod === 'CARD') { 
+            const num = document.querySelector('#collapseCard .card-number')?.value.replace(/\s+/g, ''); 
+            const name = document.querySelector('#collapseCard .card-name')?.value.trim(); 
+            const exp = document.querySelector('#collapseCard .card-expiry')?.value.trim();
+            const cvv = document.querySelector('#collapseCard .card-cvv')?.value.trim();
+            
+            if (num && num.length >= 12 && name && exp.length === 5 && cvv.length >= 3) return enablePay(); 
+        } 
+        
+        return disablePay(); 
+    }
+    
+    function enablePay() { payBtn.disabled = false; payBtn.textContent = (selectedMethod === 'CASH_ON_DELIVERY') ? 'Confirm COD Order' : 'Pay Now'; }
+    function disablePay() { payBtn.disabled = true; payBtn.textContent = 'Select a Method'; }
+    
+    document.addEventListener('DOMContentLoaded', fetchOrderDetails);
+    
+    document.querySelectorAll('.accordion-collapse').forEach(c => { 
+        c.addEventListener('shown.bs.collapse', () => { 
+            selectedMethod = c.closest('.accordion-item')?.dataset?.method; 
+            validate(); 
+        }); 
+        c.addEventListener('hidden.bs.collapse', () => { 
+            if (!document.querySelector('.accordion-collapse.show')) selectedMethod = null; 
+            validate(); 
+        }); 
+    });
+    
+    ['keyup', 'change', 'input'].forEach(evt => { 
+        document.querySelectorAll('.upi-input, .bank-select, .card-number, .card-name, .card-expiry, .card-cvv').forEach(el => el.addEventListener(evt, validate)); 
+    });
+
+    payBtn.addEventListener('click', () => {
+        if (!orderIdDisplay.dataset.orderId) {
+            alert("Error: Order ID is missing. Cannot proceed.");
+            return;
+        }
+
+        if (selectedMethod === 'CASH_ON_DELIVERY') {
+            processPayment(true);
+        } else {
+            processingModal.show();
+            setTimeout(() => {
+                processingModal.hide();
+                choiceModal.show();
+            }, 700);
+        }
+    });
+
+    document.getElementById('choiceSuccess').addEventListener('click', () => processPayment(true));
+    document.getElementById('choiceFailed').addEventListener('click', () => processPayment(false));
+    
+    disablePay();
+</script>
+</body>
+</html>
