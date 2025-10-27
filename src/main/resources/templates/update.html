@@ -90,6 +90,17 @@
     // --- Utility Functions ---
 
 
+    function getAuthHeaders() {
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+        return headers;
+    }
+
     // Toast helper
     function showToast(message, type = 'info') {
         const toastElement = document.getElementById('liveToast');
@@ -122,17 +133,15 @@
         const content = document.getElementById('auth-content');
 
         try {
-            // FIX: Corrected URL to match UserController: /api/get-user-details/{userId}
             const response = await fetch(`${BASE_URL}/api/get-user-details/${userId}`, {
                 method: 'GET',
-                headers: getAuthHeaders()
+                headers: getAuthHeaders() // Using the new function
             });
 
             if (response.ok) {
                 const responseData = await response.json();
-                const userData = responseData.data; // Data is wrapped in 'data' by your controller
+                const userData = responseData.data;
 
-                // FIX: Uses the correct element ID 'updateUsername'
                 document.getElementById('updateUsername').value = userData.username || '';
                 document.getElementById('updateEmail').value = userData.email || '';
 
@@ -140,6 +149,9 @@
                 loader.classList.add('d-none');
                 content.classList.remove('d-none');
 
+            } else if (response.status === 401 || response.status === 403) {
+                showToast('Session expired. Please log in again.', 'error');
+                setTimeout(() => window.location.href = 'login.html', 1000);
             } else {
                 let errorText = 'Failed to fetch user details.';
                 try {
@@ -161,6 +173,7 @@
         const userId = localStorage.getItem('userId');
         if (!userId) {
             showToast('Not authenticated. Please login.', 'error');
+            setTimeout(() => window.location.href = 'login.html', 800);
             return;
         }
 
@@ -171,17 +184,17 @@
 
         const username = document.getElementById('updateUsername').value.trim();
         const email = document.getElementById('updateEmail').value.trim();
-        const password = document.getElementById('updatePassword').value;
+        const passwordField = document.getElementById('updatePassword');
+        const password = passwordField.value;
 
         // Payload preparation
         const payload = { username, email };
         if (password) payload.password = password;
 
         try {
-            // FIX: Corrected URL to match UserController: /api/update-user-data/{userId}
-            const response = await fetch(`${BASE_URL}/api/update-user-data/${encodeURIComponent(userId)}`, {
+            const response = await fetch(`${BASE_URL}/api/update-user-data/${userId}`, {
                 method: 'PUT',
-                headers: getAuthHeaders(),
+                headers: getAuthHeaders(), // Using the new function
                 body: JSON.stringify(payload)
             });
 
@@ -189,24 +202,22 @@
                 const responseData = await response.json();
                 const messageText = responseData.message || 'Updated successfully.';
 
-                // Update client-side username (in case it was changed, though read-only here)
-                localStorage.setItem('username', username);
+                // Clear the password field for security
+                passwordField.value = '';
 
                 showToast(`Update successful. ${messageText}`, 'success');
 
-                // Reload to clear password field and show current data
-                setTimeout(() => window.location.reload(), 900);
+
             } else {
                  let errorText = 'Update failed.';
                 try {
                     const errJson = await response.json();
-                    // Backend returns 'error' or 'message'
                     errorText = errJson.error || errJson.message || JSON.stringify(errJson);
                 } catch {}
 
                 if (response.status === 404) {
                     showToast('Update failed: User not found.', 'error');
-                } else if (response.status === 401) {
+                } else if (response.status === 401 || response.status === 403) {
                     showToast('Unauthorized. Please login again.', 'error');
                     setTimeout(() => window.location.href = 'login.html', 800);
                 } else {
@@ -222,7 +233,6 @@
         }
     }
 
-    // Initialize the page: load user data on page load
     document.addEventListener('DOMContentLoaded', populateUpdateForm);
 
 </script>

@@ -3,6 +3,8 @@ package com.genc.e_commerce;
 import com.genc.e_commerce.dto.LoginRequest;
 import com.genc.e_commerce.dto.UserUpdateDTO;
 import com.genc.e_commerce.entity.User;
+import com.genc.e_commerce.exception.DuplicateResourceException;
+import com.genc.e_commerce.exception.ResourceNotFoundException;
 import com.genc.e_commerce.repository.UserRepository;
 import com.genc.e_commerce.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,16 +52,18 @@ import static org.mockito.Mockito.*;
     }
 
     // Test adding a new user when the username already exists.
-    @Test
+
+     @Test
      void testAddUser_UserAlreadyExists() {
-        when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
+         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(mockUser));
 
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            userService.addUser(mockUser);
-        });
+         DuplicateResourceException exception =
+                 assertThrows(DuplicateResourceException.class, () -> {
+                     userService.addUser(mockUser);
+                 });
 
-        assertEquals("User with username 'testuser' already exists!", exception.getMessage());
-    }
+         assertEquals("User with username 'testuser' already exists.", exception.getMessage());
+     }
 
     // Test successful login with correct username and password.
     @Test
@@ -125,17 +129,20 @@ import static org.mockito.Mockito.*;
 
     // Test updating user profile when user ID does not exist.
     @Test
-     void testUpdateUserProfile_UserNotFound() {
-       UserUpdateDTO updateDTO = new UserUpdateDTO();
-       updateDTO.setUsername("newuser");
-       updateDTO.setEmail("newemail@example.com");
-       updateDTO.setPassword("newpassword");
+    void testUpdateUserProfile_UserNotFound() {
+        UserUpdateDTO updateDTO = new UserUpdateDTO();
+        updateDTO.setUsername("newuser");
+        updateDTO.setEmail("newemail@example.com");
+        updateDTO.setPassword("newpassword");
 
-       when(userRepository.findById(999L)).thenReturn(Optional.empty());
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
 
-       User result = userService.updateUserProfile(999L, updateDTO);
+        ResourceNotFoundException exception =
+                assertThrows(ResourceNotFoundException.class, () -> {
+                    userService.updateUserProfile(999L, updateDTO);
+                });
 
-       assertNull(result);
-       verify(userRepository, never()).save(any(User.class));
+        assertEquals("User with id 999 not found.", exception.getMessage());
+        verify(userRepository, never()).save(any(User.class));
     }
 }
