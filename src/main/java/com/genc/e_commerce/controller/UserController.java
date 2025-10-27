@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @PostMapping("/login-user")
-    public ResponseEntity<Object> loginUser(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Object> loginUser(@Valid @RequestBody LoginRequest loginRequest) {
         logger.info("Login attempt for user: {}", loginRequest.getUsername());
         try {
             User userData = userService.loginUser(loginRequest);
@@ -87,7 +87,7 @@ public class UserController {
     }
 
     @PutMapping("/update-user-data/{userId}")
-    public ResponseEntity<Map<String, Object>> updateUserProfile(@PathVariable Long userId, @RequestBody UserUpdateDTO userData) {
+    public ResponseEntity<Map<String, Object>> updateUserProfile(@PathVariable Long userId,@Valid @RequestBody UserUpdateDTO userData) {
         logger.info("Request received to update profile for user ID: {}", userId);
         logger.debug("Update payload for user ID {}: {}", userId, userData);
         Map<String, Object> response = new HashMap<>();
