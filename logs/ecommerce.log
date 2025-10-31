@@ -2347,3 +2347,313 @@
 2025-10-27 17:40:50.781 INFO  [http-nio-8092-exec-5] ProductController - Request received to get all products
 2025-10-27 17:40:50.801 DEBUG [http-nio-8092-exec-4] CategoryController - Fetched 2 categories
 2025-10-27 17:40:50.811 DEBUG [http-nio-8092-exec-5] ProductController - Fetched 3 products
+2025-10-27 22:12:37.687 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 20772 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-27 22:12:37.695 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-27 22:12:37.697 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-27 22:12:45.470 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 8.282 seconds (process running for 9.48)
+2025-10-27 22:12:51.106 INFO  [http-nio-8092-exec-1] ProductController - Request received to get all products
+2025-10-27 22:12:51.106 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-27 22:12:51.295 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 2 categories
+2025-10-27 22:12:51.295 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 3 products
+2025-10-27 22:13:03.603 INFO  [http-nio-8092-exec-4] UserController - Login attempt for user: testuser1
+2025-10-27 22:13:03.614 INFO  [http-nio-8092-exec-4] UserService - Attempting login for user: testuser1
+2025-10-27 22:13:03.789 INFO  [http-nio-8092-exec-4] UserService - Successful login for user ID: 1
+2025-10-27 22:13:03.793 INFO  [http-nio-8092-exec-4] UserController - User 'testuser1' logged in successfully.
+2025-10-27 22:13:05.452 INFO  [http-nio-8092-exec-6] ProductController - Request received to get all products
+2025-10-27 22:13:05.452 INFO  [http-nio-8092-exec-5] CategoryController - Request received to get all categories
+2025-10-27 22:13:05.465 DEBUG [http-nio-8092-exec-5] CategoryController - Fetched 2 categories
+2025-10-27 22:13:05.467 DEBUG [http-nio-8092-exec-6] ProductController - Fetched 3 products
+2025-10-27 22:13:13.120 DEBUG [http-nio-8092-exec-8] CartController - Request received to add product to cart: CartRequest(userId=1, productId=3, quantity=1)
+2025-10-27 22:13:13.138 INFO  [http-nio-8092-exec-8] CartService - Attempting to add product to cart for user ID:1 and product ID:3
+2025-10-27 22:13:13.153 DEBUG [http-nio-8092-exec-8] CartService - User found: testuser1
+2025-10-27 22:13:13.153 DEBUG [http-nio-8092-exec-8] CartService - Product found: Apple Iphone 17
+2025-10-27 22:13:13.237 INFO  [http-nio-8092-exec-8] CartService - New cart item created with Quantity: 1
+2025-10-27 22:13:13.387 INFO  [http-nio-8092-exec-8] CartController - Product 3 added to cart for user 1.
+2025-10-27 22:13:17.484 INFO  [http-nio-8092-exec-10] CartController - Fetching cart details for user ID: 1
+2025-10-27 22:13:17.511 DEBUG [http-nio-8092-exec-10] CartController - Found 1 cart items for user ID: 1
+2025-10-27 22:13:19.920 INFO  [http-nio-8092-exec-2] OrderController - Request received to create an order for user ID: 1
+2025-10-27 22:13:19.920 DEBUG [http-nio-8092-exec-2] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=20000.0, orderDate=null, status=null)
+2025-10-27 22:13:19.970 INFO  [http-nio-8092-exec-2] OrderController - Successfully created order with ID: 4 for user ID: 1
+2025-10-27 22:13:23.657 INFO  [http-nio-8092-exec-4] OrderController - Request received to fetch details for order ID: 4
+2025-10-27 22:13:23.671 INFO  [http-nio-8092-exec-4] OrderController - Successfully fetched details for order ID: 4
+2025-10-27 22:13:26.242 INFO  [http-nio-8092-exec-6] PaymentController - Received payment processing request for orderId: 4
+2025-10-27 22:13:26.242 DEBUG [http-nio-8092-exec-6] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=CASH_ON_DELIVERY
+2025-10-27 22:13:26.255 INFO  [http-nio-8092-exec-6] PaymentService - Attempting to process payment for orderId: 4
+2025-10-27 22:13:26.263 DEBUG [http-nio-8092-exec-6] PaymentService - Payment method for orderId 4: CASH_ON_DELIVERY
+2025-10-27 22:13:26.263 INFO  [http-nio-8092-exec-6] PaymentService - Payment successful for orderId: 4. Order status set to PENDING.
+2025-10-27 22:13:26.304 INFO  [http-nio-8092-exec-6] PaymentService - Payment processed and saved successfully for orderId: 4
+2025-10-27 22:13:26.341 INFO  [http-nio-8092-exec-6] PaymentController - Successfully processed payment for orderId: 4
+2025-10-27 22:13:28.051 INFO  [http-nio-8092-exec-7] OrderController - Request received to fetch details for order ID: 4
+2025-10-27 22:13:28.063 INFO  [http-nio-8092-exec-7] OrderController - Successfully fetched details for order ID: 4
+2025-10-27 22:13:35.436 INFO  [http-nio-8092-exec-8] CategoryController - Request received to get all categories
+2025-10-27 22:13:35.436 INFO  [http-nio-8092-exec-9] ProductController - Request received to get all products
+2025-10-27 22:13:35.444 DEBUG [http-nio-8092-exec-8] CategoryController - Fetched 2 categories
+2025-10-27 22:13:35.446 DEBUG [http-nio-8092-exec-9] ProductController - Fetched 3 products
+2025-10-28 13:47:44.777 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 19844 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-28 13:47:44.788 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-28 13:47:44.789 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-28 13:47:52.384 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 8.158 seconds (process running for 9.345)
+2025-10-28 13:49:00.250 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 4760 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-28 13:49:00.269 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-28 13:49:00.270 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-28 13:49:05.870 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 6.093 seconds (process running for 6.939)
+2025-10-28 13:49:11.266 INFO  [http-nio-8092-exec-1] UserController - Login attempt for user: testuser1
+2025-10-28 13:49:11.266 INFO  [http-nio-8092-exec-1] UserService - Attempting login for user: testuser1
+2025-10-28 13:49:11.467 INFO  [http-nio-8092-exec-1] UserService - Successful login for user ID: 1
+2025-10-28 13:49:11.468 INFO  [http-nio-8092-exec-1] UserController - User 'testuser1' logged in successfully.
+2025-10-28 13:49:13.167 INFO  [http-nio-8092-exec-3] CategoryController - Request received to get all categories
+2025-10-28 13:49:13.169 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-28 13:49:13.239 DEBUG [http-nio-8092-exec-3] CategoryController - Fetched 2 categories
+2025-10-28 13:49:13.244 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 3 products
+2025-10-28 14:45:12.825 INFO  [restartedMain] ECommerceApplication - Starting ECommerceApplication using Java 24.0.1 with PID 15304 (C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce\target\classes started by 2442571 in C:\Users\2442571\OneDrive - Cognizant\Documents\e-commerce)
+2025-10-28 14:45:12.839 DEBUG [restartedMain] ECommerceApplication - Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-28 14:45:12.841 INFO  [restartedMain] ECommerceApplication - The following 1 profile is active: "dev"
+2025-10-28 14:45:19.599 INFO  [restartedMain] ECommerceApplication - Started ECommerceApplication in 7.233 seconds (process running for 8.314)
+2025-10-28 14:45:40.046 INFO  [http-nio-8092-exec-2] UserController - Login attempt for user: testuser1
+2025-10-28 14:45:40.055 INFO  [http-nio-8092-exec-2] UserService - Attempting login for user: testuser1
+2025-10-28 14:45:40.712 INFO  [http-nio-8092-exec-2] UserService - Successful login for user ID: 1
+2025-10-28 14:45:40.723 INFO  [http-nio-8092-exec-2] UserController - User 'testuser1' logged in successfully.
+2025-10-28 14:45:42.912 INFO  [http-nio-8092-exec-4] CategoryController - Request received to get all categories
+2025-10-28 14:45:42.913 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-28 14:45:43.048 DEBUG [http-nio-8092-exec-4] CategoryController - Fetched 2 categories
+2025-10-28 14:45:43.065 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 3 products
+2025-10-28 14:45:53.164 DEBUG [http-nio-8092-exec-6] CartController - Request received to add product to cart: CartRequest(userId=1, productId=2, quantity=1)
+2025-10-28 14:45:53.178 INFO  [http-nio-8092-exec-6] CartService - Attempting to add product to cart for user ID:1 and product ID:2
+2025-10-28 14:45:53.198 DEBUG [http-nio-8092-exec-6] CartService - User found: testuser1
+2025-10-28 14:45:53.214 DEBUG [http-nio-8092-exec-6] CartService - Product found: TWS Earphones
+2025-10-28 14:45:53.373 INFO  [http-nio-8092-exec-6] CartService - New cart item created with Quantity: 1
+2025-10-28 14:45:53.555 INFO  [http-nio-8092-exec-6] CartController - Product 2 added to cart for user 1.
+2025-10-28 14:45:55.682 INFO  [http-nio-8092-exec-7] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:45:55.747 DEBUG [http-nio-8092-exec-7] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:45:59.651 INFO  [http-nio-8092-exec-10] CartController - Request received to remove cart item with ID: 5
+2025-10-28 14:45:59.664 INFO  [http-nio-8092-exec-10] CartService - Attempting to find and remove cart item using cart ID:5
+2025-10-28 14:45:59.725 INFO  [http-nio-8092-exec-10] CartService - Cart item successfully deleted: 5
+2025-10-28 14:45:59.785 INFO  [http-nio-8092-exec-10] CartController - Successfully deleted cart item with ID: 5
+2025-10-28 14:45:59.818 INFO  [http-nio-8092-exec-1] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:45:59.843 DEBUG [http-nio-8092-exec-1] CartController - Found 0 cart items for user ID: 1
+2025-10-28 14:46:03.238 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-28 14:46:03.238 INFO  [http-nio-8092-exec-4] ProductController - Request received to get all products
+2025-10-28 14:46:03.264 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 2 categories
+2025-10-28 14:46:03.273 DEBUG [http-nio-8092-exec-4] ProductController - Fetched 3 products
+2025-10-28 14:46:07.369 DEBUG [http-nio-8092-exec-3] CartController - Request received to add product to cart: CartRequest(userId=1, productId=2, quantity=1)
+2025-10-28 14:46:07.380 INFO  [http-nio-8092-exec-3] CartService - Attempting to add product to cart for user ID:1 and product ID:2
+2025-10-28 14:46:07.380 DEBUG [http-nio-8092-exec-3] CartService - User found: testuser1
+2025-10-28 14:46:07.395 DEBUG [http-nio-8092-exec-3] CartService - Product found: TWS Earphones
+2025-10-28 14:46:07.403 INFO  [http-nio-8092-exec-3] CartService - New cart item created with Quantity: 1
+2025-10-28 14:46:07.447 INFO  [http-nio-8092-exec-3] CartController - Product 2 added to cart for user 1.
+2025-10-28 14:46:11.460 INFO  [http-nio-8092-exec-5] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:46:11.496 DEBUG [http-nio-8092-exec-5] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:46:13.264 INFO  [http-nio-8092-exec-8] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:46:13.264 DEBUG [http-nio-8092-exec-8] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=1999.0, orderDate=null, status=null)
+2025-10-28 14:46:13.378 INFO  [http-nio-8092-exec-8] OrderController - Successfully created order with ID: 5 for user ID: 1
+2025-10-28 14:46:16.665 INFO  [http-nio-8092-exec-9] OrderController - Request received to fetch details for order ID: 5
+2025-10-28 14:46:16.678 INFO  [http-nio-8092-exec-9] OrderController - Successfully fetched details for order ID: 5
+2025-10-28 14:46:29.131 INFO  [http-nio-8092-exec-1] PaymentController - Received payment processing request for orderId: 5
+2025-10-28 14:46:29.131 DEBUG [http-nio-8092-exec-1] PaymentController - Payment details: isPaymentSuccess=false, paymentMethod=UPI
+2025-10-28 14:46:29.147 INFO  [http-nio-8092-exec-1] PaymentService - Attempting to process payment for orderId: 5
+2025-10-28 14:46:29.164 DEBUG [http-nio-8092-exec-1] PaymentService - Payment method for orderId 5: UPI
+2025-10-28 14:46:29.164 WARN  [http-nio-8092-exec-1] PaymentService - Payment failed for orderId: 5. Order status set to CANCELLED.
+2025-10-28 14:46:29.261 INFO  [http-nio-8092-exec-1] PaymentService - Payment processed and saved successfully for orderId: 5
+2025-10-28 14:46:29.315 INFO  [http-nio-8092-exec-1] PaymentController - Successfully processed payment for orderId: 5
+2025-10-28 14:46:32.558 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 5
+2025-10-28 14:46:32.578 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 5
+2025-10-28 14:48:21.890 INFO  [http-nio-8092-exec-6] OrderController - Request received to fetch details for order ID: 1
+2025-10-28 14:48:21.905 INFO  [http-nio-8092-exec-6] OrderController - Successfully fetched details for order ID: 1
+2025-10-28 14:48:24.327 INFO  [http-nio-8092-exec-8] OrderController - Request received to fetch details for order ID: 1
+2025-10-28 14:48:24.346 INFO  [http-nio-8092-exec-8] OrderController - Successfully fetched details for order ID: 1
+2025-10-28 14:48:27.079 INFO  [http-nio-8092-exec-9] OrderController - Request received to fetch details for order ID: 2
+2025-10-28 14:48:27.096 INFO  [http-nio-8092-exec-9] OrderController - Successfully fetched details for order ID: 2
+2025-10-28 14:48:32.349 INFO  [http-nio-8092-exec-10] OrderController - Request received to fetch details for order ID: 5
+2025-10-28 14:48:32.379 INFO  [http-nio-8092-exec-10] OrderController - Successfully fetched details for order ID: 5
+2025-10-28 14:48:36.160 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 4
+2025-10-28 14:48:36.180 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 4
+2025-10-28 14:48:42.744 INFO  [http-nio-8092-exec-3] ProductController - Request received to get all products
+2025-10-28 14:48:42.744 INFO  [http-nio-8092-exec-4] CategoryController - Request received to get all categories
+2025-10-28 14:48:42.768 DEBUG [http-nio-8092-exec-4] CategoryController - Fetched 2 categories
+2025-10-28 14:48:42.780 DEBUG [http-nio-8092-exec-3] ProductController - Fetched 3 products
+2025-10-28 14:48:50.129 DEBUG [http-nio-8092-exec-5] CartController - Request received to add product to cart: CartRequest(userId=1, productId=2, quantity=1)
+2025-10-28 14:48:50.129 INFO  [http-nio-8092-exec-5] CartService - Attempting to add product to cart for user ID:1 and product ID:2
+2025-10-28 14:48:50.145 DEBUG [http-nio-8092-exec-5] CartService - User found: testuser1
+2025-10-28 14:48:50.145 DEBUG [http-nio-8092-exec-5] CartService - Product found: TWS Earphones
+2025-10-28 14:48:50.162 INFO  [http-nio-8092-exec-5] CartService - Existing cart item updated. New Quantity: 2
+2025-10-28 14:48:50.196 INFO  [http-nio-8092-exec-5] CartController - Product 2 added to cart for user 1.
+2025-10-28 14:48:52.885 INFO  [http-nio-8092-exec-6] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:48:52.912 DEBUG [http-nio-8092-exec-6] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:48:55.249 INFO  [http-nio-8092-exec-8] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:48:55.253 DEBUG [http-nio-8092-exec-8] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=3998.0, orderDate=null, status=null)
+2025-10-28 14:48:55.295 INFO  [http-nio-8092-exec-8] OrderController - Successfully created order with ID: 6 for user ID: 1
+2025-10-28 14:48:58.692 INFO  [http-nio-8092-exec-9] OrderController - Request received to fetch details for order ID: 6
+2025-10-28 14:48:58.706 INFO  [http-nio-8092-exec-9] OrderController - Successfully fetched details for order ID: 6
+2025-10-28 14:49:13.260 INFO  [http-nio-8092-exec-1] PaymentController - Received payment processing request for orderId: 6
+2025-10-28 14:49:13.260 DEBUG [http-nio-8092-exec-1] PaymentController - Payment details: isPaymentSuccess=false, paymentMethod=UPI
+2025-10-28 14:49:13.264 INFO  [http-nio-8092-exec-1] PaymentService - Attempting to process payment for orderId: 6
+2025-10-28 14:49:13.279 DEBUG [http-nio-8092-exec-1] PaymentService - Payment method for orderId 6: UPI
+2025-10-28 14:49:13.279 WARN  [http-nio-8092-exec-1] PaymentService - Payment failed for orderId: 6. Order status set to CANCELLED.
+2025-10-28 14:49:13.295 INFO  [http-nio-8092-exec-1] PaymentService - Payment processed and saved successfully for orderId: 6
+2025-10-28 14:49:13.324 INFO  [http-nio-8092-exec-1] PaymentController - Successfully processed payment for orderId: 6
+2025-10-28 14:49:16.570 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 6
+2025-10-28 14:49:16.591 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 6
+2025-10-28 14:50:28.954 INFO  [http-nio-8092-exec-5] CategoryController - Request received to get all categories
+2025-10-28 14:50:28.954 INFO  [http-nio-8092-exec-6] ProductController - Request received to get all products
+2025-10-28 14:50:28.968 DEBUG [http-nio-8092-exec-5] CategoryController - Fetched 2 categories
+2025-10-28 14:50:28.973 DEBUG [http-nio-8092-exec-6] ProductController - Fetched 3 products
+2025-10-28 14:50:32.461 INFO  [http-nio-8092-exec-8] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:50:32.486 DEBUG [http-nio-8092-exec-8] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:50:34.384 INFO  [http-nio-8092-exec-7] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:50:34.384 DEBUG [http-nio-8092-exec-7] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=3998.0, orderDate=null, status=null)
+2025-10-28 14:50:34.419 INFO  [http-nio-8092-exec-7] OrderController - Successfully created order with ID: 7 for user ID: 1
+2025-10-28 14:50:36.470 INFO  [http-nio-8092-exec-10] OrderController - Request received to fetch details for order ID: 7
+2025-10-28 14:50:36.499 INFO  [http-nio-8092-exec-10] OrderController - Successfully fetched details for order ID: 7
+2025-10-28 14:50:46.912 INFO  [http-nio-8092-exec-2] PaymentController - Received payment processing request for orderId: 7
+2025-10-28 14:50:46.912 DEBUG [http-nio-8092-exec-2] PaymentController - Payment details: isPaymentSuccess=false, paymentMethod=UPI
+2025-10-28 14:50:46.929 INFO  [http-nio-8092-exec-2] PaymentService - Attempting to process payment for orderId: 7
+2025-10-28 14:50:46.941 DEBUG [http-nio-8092-exec-2] PaymentService - Payment method for orderId 7: UPI
+2025-10-28 14:50:46.942 WARN  [http-nio-8092-exec-2] PaymentService - Payment failed for orderId: 7. Order status set to CANCELLED.
+2025-10-28 14:50:46.949 INFO  [http-nio-8092-exec-2] PaymentService - Payment processed and saved successfully for orderId: 7
+2025-10-28 14:50:47.000 INFO  [http-nio-8092-exec-2] PaymentController - Successfully processed payment for orderId: 7
+2025-10-28 14:50:50.270 INFO  [http-nio-8092-exec-4] OrderController - Request received to fetch details for order ID: 7
+2025-10-28 14:50:50.293 INFO  [http-nio-8092-exec-4] OrderController - Successfully fetched details for order ID: 7
+2025-10-28 14:51:58.146 INFO  [http-nio-8092-exec-6] CategoryController - Request received to get all categories
+2025-10-28 14:51:58.147 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-28 14:51:58.164 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 3 products
+2025-10-28 14:51:58.168 DEBUG [http-nio-8092-exec-6] CategoryController - Fetched 2 categories
+2025-10-28 14:51:59.809 INFO  [http-nio-8092-exec-7] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:51:59.852 DEBUG [http-nio-8092-exec-7] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:52:01.406 INFO  [http-nio-8092-exec-9] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:52:01.406 DEBUG [http-nio-8092-exec-9] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=3998.0, orderDate=null, status=null)
+2025-10-28 14:52:01.443 INFO  [http-nio-8092-exec-9] OrderController - Successfully created order with ID: 8 for user ID: 1
+2025-10-28 14:52:03.976 INFO  [http-nio-8092-exec-1] OrderController - Request received to fetch details for order ID: 8
+2025-10-28 14:52:04.003 INFO  [http-nio-8092-exec-1] OrderController - Successfully fetched details for order ID: 8
+2025-10-28 14:52:13.708 INFO  [http-nio-8092-exec-4] PaymentController - Received payment processing request for orderId: 8
+2025-10-28 14:52:13.708 DEBUG [http-nio-8092-exec-4] PaymentController - Payment details: isPaymentSuccess=false, paymentMethod=UPI
+2025-10-28 14:52:13.725 INFO  [http-nio-8092-exec-4] PaymentService - Attempting to process payment for orderId: 8
+2025-10-28 14:52:13.739 DEBUG [http-nio-8092-exec-4] PaymentService - Payment method for orderId 8: UPI
+2025-10-28 14:52:13.739 WARN  [http-nio-8092-exec-4] PaymentService - Payment failed for orderId: 8. Order status set to CANCELLED.
+2025-10-28 14:52:13.757 INFO  [http-nio-8092-exec-4] PaymentService - Payment processed and saved successfully for orderId: 8
+2025-10-28 14:52:13.794 INFO  [http-nio-8092-exec-4] PaymentController - Successfully processed payment for orderId: 8
+2025-10-28 14:52:17.036 INFO  [http-nio-8092-exec-3] OrderController - Request received to fetch details for order ID: 8
+2025-10-28 14:52:17.047 INFO  [http-nio-8092-exec-3] OrderController - Successfully fetched details for order ID: 8
+2025-10-28 14:52:30.218 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-28 14:52:30.218 INFO  [http-nio-8092-exec-5] CategoryController - Request received to get all categories
+2025-10-28 14:52:30.231 DEBUG [http-nio-8092-exec-5] CategoryController - Fetched 2 categories
+2025-10-28 14:52:30.234 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 3 products
+2025-10-28 14:52:32.365 INFO  [http-nio-8092-exec-6] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:52:32.384 DEBUG [http-nio-8092-exec-6] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:52:33.594 INFO  [http-nio-8092-exec-7] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:52:33.596 DEBUG [http-nio-8092-exec-7] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=3998.0, orderDate=null, status=null)
+2025-10-28 14:52:33.624 INFO  [http-nio-8092-exec-7] OrderController - Successfully created order with ID: 9 for user ID: 1
+2025-10-28 14:52:35.517 INFO  [http-nio-8092-exec-10] OrderController - Request received to fetch details for order ID: 9
+2025-10-28 14:52:35.534 INFO  [http-nio-8092-exec-10] OrderController - Successfully fetched details for order ID: 9
+2025-10-28 14:52:44.828 INFO  [http-nio-8092-exec-2] PaymentController - Received payment processing request for orderId: 9
+2025-10-28 14:52:44.828 DEBUG [http-nio-8092-exec-2] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=UPI
+2025-10-28 14:52:44.828 INFO  [http-nio-8092-exec-2] PaymentService - Attempting to process payment for orderId: 9
+2025-10-28 14:52:44.845 DEBUG [http-nio-8092-exec-2] PaymentService - Payment method for orderId 9: UPI
+2025-10-28 14:52:44.845 INFO  [http-nio-8092-exec-2] PaymentService - Payment successful for orderId: 9. Order status set to PENDING.
+2025-10-28 14:52:44.877 INFO  [http-nio-8092-exec-2] PaymentService - Payment processed and saved successfully for orderId: 9
+2025-10-28 14:52:44.910 INFO  [http-nio-8092-exec-2] PaymentController - Successfully processed payment for orderId: 9
+2025-10-28 14:52:48.147 INFO  [http-nio-8092-exec-4] OrderController - Request received to fetch details for order ID: 9
+2025-10-28 14:52:48.164 INFO  [http-nio-8092-exec-4] OrderController - Successfully fetched details for order ID: 9
+2025-10-28 14:53:51.213 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-28 14:53:51.214 INFO  [http-nio-8092-exec-6] CategoryController - Request received to get all categories
+2025-10-28 14:53:51.228 DEBUG [http-nio-8092-exec-6] CategoryController - Fetched 2 categories
+2025-10-28 14:53:51.231 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 3 products
+2025-10-28 14:54:18.379 DEBUG [http-nio-8092-exec-7] CartController - Request received to add product to cart: CartRequest(userId=1, productId=2, quantity=1)
+2025-10-28 14:54:18.384 INFO  [http-nio-8092-exec-7] CartService - Attempting to add product to cart for user ID:1 and product ID:2
+2025-10-28 14:54:18.390 DEBUG [http-nio-8092-exec-7] CartService - User found: testuser1
+2025-10-28 14:54:18.400 DEBUG [http-nio-8092-exec-7] CartService - Product found: TWS Earphones
+2025-10-28 14:54:18.416 INFO  [http-nio-8092-exec-7] CartService - New cart item created with Quantity: 1
+2025-10-28 14:54:18.459 INFO  [http-nio-8092-exec-7] CartController - Product 2 added to cart for user 1.
+2025-10-28 14:54:21.554 INFO  [http-nio-8092-exec-9] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:54:21.600 DEBUG [http-nio-8092-exec-9] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:54:23.404 INFO  [http-nio-8092-exec-10] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:54:23.404 DEBUG [http-nio-8092-exec-10] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=1999.0, orderDate=null, status=null)
+2025-10-28 14:54:23.458 INFO  [http-nio-8092-exec-10] OrderController - Successfully created order with ID: 10 for user ID: 1
+2025-10-28 14:54:25.260 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 10
+2025-10-28 14:54:25.276 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 10
+2025-10-28 14:54:31.597 INFO  [http-nio-8092-exec-3] PaymentController - Received payment processing request for orderId: 10
+2025-10-28 14:54:31.599 DEBUG [http-nio-8092-exec-3] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=UPI
+2025-10-28 14:54:31.605 INFO  [http-nio-8092-exec-3] PaymentService - Attempting to process payment for orderId: 10
+2025-10-28 14:54:31.613 DEBUG [http-nio-8092-exec-3] PaymentService - Payment method for orderId 10: UPI
+2025-10-28 14:54:31.615 INFO  [http-nio-8092-exec-3] PaymentService - Payment successful for orderId: 10. Order status set to PENDING.
+2025-10-28 14:54:31.638 INFO  [http-nio-8092-exec-3] PaymentService - Payment processed and saved successfully for orderId: 10
+2025-10-28 14:54:31.689 INFO  [http-nio-8092-exec-3] PaymentController - Successfully processed payment for orderId: 10
+2025-10-28 14:54:33.311 INFO  [http-nio-8092-exec-5] OrderController - Request received to fetch details for order ID: 10
+2025-10-28 14:54:33.334 INFO  [http-nio-8092-exec-5] OrderController - Successfully fetched details for order ID: 10
+2025-10-28 14:54:35.132 INFO  [http-nio-8092-exec-6] CategoryController - Request received to get all categories
+2025-10-28 14:54:35.132 INFO  [http-nio-8092-exec-8] ProductController - Request received to get all products
+2025-10-28 14:54:35.138 DEBUG [http-nio-8092-exec-6] CategoryController - Fetched 2 categories
+2025-10-28 14:54:35.145 DEBUG [http-nio-8092-exec-8] ProductController - Fetched 3 products
+2025-10-28 14:54:37.281 INFO  [http-nio-8092-exec-7] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:54:37.304 DEBUG [http-nio-8092-exec-7] CartController - Found 0 cart items for user ID: 1
+2025-10-28 14:54:39.297 INFO  [http-nio-8092-exec-9] CategoryController - Request received to get all categories
+2025-10-28 14:54:39.299 INFO  [http-nio-8092-exec-10] ProductController - Request received to get all products
+2025-10-28 14:54:39.321 DEBUG [http-nio-8092-exec-9] CategoryController - Fetched 2 categories
+2025-10-28 14:54:39.332 DEBUG [http-nio-8092-exec-10] ProductController - Fetched 3 products
+2025-10-28 14:54:43.461 DEBUG [http-nio-8092-exec-1] CartController - Request received to add product to cart: CartRequest(userId=1, productId=1, quantity=1)
+2025-10-28 14:54:43.464 INFO  [http-nio-8092-exec-1] CartService - Attempting to add product to cart for user ID:1 and product ID:1
+2025-10-28 14:54:43.466 DEBUG [http-nio-8092-exec-1] CartService - User found: testuser1
+2025-10-28 14:54:43.468 DEBUG [http-nio-8092-exec-1] CartService - Product found: Earphones
+2025-10-28 14:54:43.472 INFO  [http-nio-8092-exec-1] CartService - New cart item created with Quantity: 1
+2025-10-28 14:54:43.486 INFO  [http-nio-8092-exec-1] CartController - Product 1 added to cart for user 1.
+2025-10-28 14:54:44.848 INFO  [http-nio-8092-exec-2] CartController - Fetching cart details for user ID: 1
+2025-10-28 14:54:44.867 DEBUG [http-nio-8092-exec-2] CartController - Found 1 cart items for user ID: 1
+2025-10-28 14:54:46.618 INFO  [http-nio-8092-exec-4] OrderController - Request received to create an order for user ID: 1
+2025-10-28 14:54:46.618 DEBUG [http-nio-8092-exec-4] OrderController - Order creation request payload: OrderRequest(userId=1, totalAmount=999.0, orderDate=null, status=null)
+2025-10-28 14:54:46.675 INFO  [http-nio-8092-exec-4] OrderController - Successfully created order with ID: 11 for user ID: 1
+2025-10-28 14:54:48.902 INFO  [http-nio-8092-exec-5] OrderController - Request received to fetch details for order ID: 11
+2025-10-28 14:54:48.919 INFO  [http-nio-8092-exec-5] OrderController - Successfully fetched details for order ID: 11
+2025-10-28 14:54:59.167 INFO  [http-nio-8092-exec-8] PaymentController - Received payment processing request for orderId: 11
+2025-10-28 14:54:59.167 DEBUG [http-nio-8092-exec-8] PaymentController - Payment details: isPaymentSuccess=false, paymentMethod=UPI
+2025-10-28 14:54:59.169 INFO  [http-nio-8092-exec-8] PaymentService - Attempting to process payment for orderId: 11
+2025-10-28 14:54:59.173 DEBUG [http-nio-8092-exec-8] PaymentService - Payment method for orderId 11: UPI
+2025-10-28 14:54:59.174 WARN  [http-nio-8092-exec-8] PaymentService - Payment failed for orderId: 11. Order status set to CANCELLED.
+2025-10-28 14:54:59.185 INFO  [http-nio-8092-exec-8] PaymentService - Payment processed and saved successfully for orderId: 11
+2025-10-28 14:54:59.220 INFO  [http-nio-8092-exec-8] PaymentController - Successfully processed payment for orderId: 11
+2025-10-28 14:55:02.540 INFO  [http-nio-8092-exec-7] OrderController - Request received to fetch details for order ID: 11
+2025-10-28 14:55:02.562 INFO  [http-nio-8092-exec-7] OrderController - Successfully fetched details for order ID: 11
+2025-10-28 16:08:38.444 INFO  [http-nio-8092-exec-2] CategoryController - Request received to get all categories
+2025-10-28 16:08:38.444 INFO  [http-nio-8092-exec-1] ProductController - Request received to get all products
+2025-10-28 16:08:38.481 DEBUG [http-nio-8092-exec-2] CategoryController - Fetched 2 categories
+2025-10-28 16:08:38.484 DEBUG [http-nio-8092-exec-1] ProductController - Fetched 3 products
+2025-10-28 16:09:13.826 INFO  [http-nio-8092-exec-3] UserController - Request received to register a new user with username: testuser4
+2025-10-28 16:09:13.828 INFO  [http-nio-8092-exec-3] UserService - Attempting to add new user with username: testuser4
+2025-10-28 16:09:14.014 INFO  [http-nio-8092-exec-3] UserService - Successfully added user with ID: 5
+2025-10-28 16:09:14.015 INFO  [http-nio-8092-exec-3] UserController - User 'testuser4' registered successfully with ID: 5
+2025-10-28 16:09:29.490 INFO  [http-nio-8092-exec-6] UserController - Login attempt for user: testuser4
+2025-10-28 16:09:29.490 INFO  [http-nio-8092-exec-6] UserService - Attempting login for user: testuser4
+2025-10-28 16:09:29.688 INFO  [http-nio-8092-exec-6] UserService - Successful login for user ID: 5
+2025-10-28 16:09:29.689 INFO  [http-nio-8092-exec-6] UserController - User 'testuser4' logged in successfully.
+2025-10-28 16:09:31.418 INFO  [http-nio-8092-exec-8] CategoryController - Request received to get all categories
+2025-10-28 16:09:31.422 INFO  [http-nio-8092-exec-7] ProductController - Request received to get all products
+2025-10-28 16:09:31.427 DEBUG [http-nio-8092-exec-8] CategoryController - Fetched 2 categories
+2025-10-28 16:09:31.434 DEBUG [http-nio-8092-exec-7] ProductController - Fetched 3 products
+2025-10-28 16:09:51.960 DEBUG [http-nio-8092-exec-10] CartController - Request received to add product to cart: CartRequest(userId=5, productId=1, quantity=1)
+2025-10-28 16:09:51.967 INFO  [http-nio-8092-exec-10] CartService - Attempting to add product to cart for user ID:5 and product ID:1
+2025-10-28 16:09:51.974 DEBUG [http-nio-8092-exec-10] CartService - User found: testuser4
+2025-10-28 16:09:51.982 DEBUG [http-nio-8092-exec-10] CartService - Product found: Earphones
+2025-10-28 16:09:51.999 INFO  [http-nio-8092-exec-10] CartService - New cart item created with Quantity: 1
+2025-10-28 16:09:52.020 INFO  [http-nio-8092-exec-10] CartController - Product 1 added to cart for user 5.
+2025-10-28 16:09:54.727 INFO  [http-nio-8092-exec-2] CartController - Fetching cart details for user ID: 5
+2025-10-28 16:09:54.763 DEBUG [http-nio-8092-exec-2] CartController - Found 1 cart items for user ID: 5
+2025-10-28 16:09:56.660 INFO  [http-nio-8092-exec-3] OrderController - Request received to create an order for user ID: 5
+2025-10-28 16:09:56.660 DEBUG [http-nio-8092-exec-3] OrderController - Order creation request payload: OrderRequest(userId=5, totalAmount=999.0, orderDate=null, status=null)
+2025-10-28 16:09:56.688 INFO  [http-nio-8092-exec-3] OrderController - Successfully created order with ID: 12 for user ID: 5
+2025-10-28 16:10:06.147 INFO  [http-nio-8092-exec-6] OrderController - Request received to fetch details for order ID: 1
+2025-10-28 16:10:06.163 INFO  [http-nio-8092-exec-6] OrderController - Successfully fetched details for order ID: 1
+2025-10-28 16:10:11.799 INFO  [http-nio-8092-exec-7] OrderController - Request received to fetch details for order ID: 12
+2025-10-28 16:10:11.815 INFO  [http-nio-8092-exec-7] OrderController - Successfully fetched details for order ID: 12
+2025-10-28 16:10:14.398 INFO  [http-nio-8092-exec-9] OrderController - Request received to fetch details for order ID: 12
+2025-10-28 16:10:14.411 INFO  [http-nio-8092-exec-9] OrderController - Successfully fetched details for order ID: 12
+2025-10-28 16:10:25.620 INFO  [http-nio-8092-exec-1] PaymentController - Received payment processing request for orderId: 12
+2025-10-28 16:10:25.621 DEBUG [http-nio-8092-exec-1] PaymentController - Payment details: isPaymentSuccess=true, paymentMethod=CASH_ON_DELIVERY
+2025-10-28 16:10:25.624 INFO  [http-nio-8092-exec-1] PaymentService - Attempting to process payment for orderId: 12
+2025-10-28 16:10:25.630 DEBUG [http-nio-8092-exec-1] PaymentService - Payment method for orderId 12: CASH_ON_DELIVERY
+2025-10-28 16:10:25.631 INFO  [http-nio-8092-exec-1] PaymentService - Payment successful for orderId: 12. Order status set to PENDING.
+2025-10-28 16:10:25.644 INFO  [http-nio-8092-exec-1] PaymentService - Payment processed and saved successfully for orderId: 12
+2025-10-28 16:10:25.659 INFO  [http-nio-8092-exec-1] PaymentController - Successfully processed payment for orderId: 12
+2025-10-28 16:10:28.170 INFO  [http-nio-8092-exec-2] OrderController - Request received to fetch details for order ID: 12
+2025-10-28 16:10:28.180 INFO  [http-nio-8092-exec-2] OrderController - Successfully fetched details for order ID: 12
+2025-10-28 16:10:44.498 INFO  [http-nio-8092-exec-5] ProductController - Request received to get all products
+2025-10-28 16:10:44.498 INFO  [http-nio-8092-exec-3] CategoryController - Request received to get all categories
+2025-10-28 16:10:44.508 DEBUG [http-nio-8092-exec-3] CategoryController - Fetched 2 categories
+2025-10-28 16:10:44.512 DEBUG [http-nio-8092-exec-5] ProductController - Fetched 3 products

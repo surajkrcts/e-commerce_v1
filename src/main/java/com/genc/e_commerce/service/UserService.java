@@ -41,11 +41,11 @@ public class UserService {
         }
 
         // Encode the password before saving
-        String encodedPassword = this.passwordEncoder.encode(user.getPassword());
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
         // Check for existing user
-        Optional<User> existingUser = this.userRepository.findByUsername(user.getUsername());
+        Optional<User> existingUser = userRepository.findByUsername(user.getUsername());
         if (existingUser.isPresent()) {
             logger.warn("Registration failed: User with username '{}' already exists.", user.getUsername());
             throw new DuplicateResourceException("User with username '" + user.getUsername() + "' already exists.");
@@ -97,15 +97,15 @@ public class UserService {
 
         User existingUser = userDetailsFromDB.get();
 
-        if (request.getUsername() != null && !request.getUsername().isEmpty() && !existingUser.getUsername().equals(request.getUsername())) {
+        if (request.getUsername() != null && !request.getUsername().isBlank() && !existingUser.getUsername().equals(request.getUsername())) {
             existingUser.setUsername(request.getUsername());
         }
 
-        if (request.getEmail() != null && !request.getEmail().isEmpty() && !existingUser.getEmail().equals(request.getEmail())) {
+        if (request.getEmail() != null && !request.getEmail().isBlank() && !existingUser.getEmail().equals(request.getEmail())) {
             existingUser.setEmail(request.getEmail());
         }
 
-        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+        if (request.getPassword() != null && !request.getPassword().isBlank()) {
             String encodedPassword = this.passwordEncoder.encode(request.getPassword());
             existingUser.setPassword(encodedPassword);
             logger.info("Password successfully reset for user ID: {}", userId);

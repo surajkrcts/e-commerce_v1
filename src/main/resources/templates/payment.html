@@ -170,13 +170,12 @@
                     if (selectedMethod === 'CASH_ON_DELIVERY') {
                         resultText.textContent = "Order Confirmed (COD)!";
                     } else {
-                        resultText.textContent = "Payment Successful!";
+                        resultText.textContent = "Payment Success!";
                     }
-
                     savedOrderEl.textContent = '#' + orderId;
                     resultButton.textContent = "View Updated Order";
                     
-                    // 💥 CRUCIAL CHANGE: Redirect back to order.html with Order ID to show new status
+                    //  Redirect back to order.html with Order ID to show new status
                     resultButton.onclick = () => window.location.href = `order.html?orderId=${orderId}`; 
                     resultModal.show();
 
